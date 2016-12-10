@@ -1,0 +1,24 @@
+{
+  "name": "pet-tinder",
+  "version": "1.0.0",
+  "description": "a tinder inspired adoption app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tasha-GitHub/Pet-Tinder.git"
+  },
+  "keywords": [
+    "pets",
+    "adoption"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tasha-GitHub/Pet-Tinder/issues"
+  },
+  "homepage": "https://github.com/Tasha-GitHub/Pet-Tinder#readme"
+}
