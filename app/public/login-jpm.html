@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fetch Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <style>
+        .buttons {
+            height: 100px;
+            width: 300px;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        
+        .buttons .btn {
+            height: 75px;
+            width: 125px;
+        }
+        
+        .fa {
+            margin-right: 25px;
+        }
+        
+        .fa-facebook-square {
+            color: blue;
+        }
+        
+        .fa-google-plus-square {
+            color: red;
+        }
+        
+        .fa-twitter-square {
+            color: lightblue;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        .w100 {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="blue-grey lighten-5">
+    <div class="buttons">
+        <button id="loginModalButton" data-target="loginModal" class="btn blue-grey waves-light waves-effect modal-close">Login</button>
+        <button id="signUpModalButton" data-target="signUpModal" class="btn blue-grey waves-light waves-effect modal-close">Sign Up</button>
+    </div>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Log Into Fetch</h4>
+            <div class="email row">
+                <div class="input-field col s12">
+                    <input id="emailLogin" type="email" class="validate">
+                    <label for="emailLogin">Email or Username</label>
+                </div>
+            </div>
+            <div class="password row">
+                <div class="input-field col s12">
+                    <input id="passwordLogin" type="password" class="validate">
+                    <label for="passwordLogin">Password</label>
+                </div>
+            </div>
+            <button id="loginButton" class="btn blue-grey waves-effect waves-ligh w100" type="submit" name="action">Login</button>
+            <br>
+            <div class="loginWith">
+                <p class="center">Or Login with(These icons are placeholders)</p>
+                <div class="center">
+                    <a href=""><i class="fa fa-facebook-square fa-3x"></i></a>
+                    <a href=""><i class="fa fa-google-plus-square fa-3x"></i></a>
+                    <a href=""><i class="fa fa-twitter-square fa-3x"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="signUpModal" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Sign Up for Fetch</h4>
+            <div class="row name">
+                <div class="input-field col s12">
+                    <input id="nameSignUpInput" type="text" class="validate">
+                    <label for="nameSignUpInput">Name</label>
+                </div>
+            </div>
+            <div class="row phone">
+                <div class="input-field col s6 left">
+                    <input id="phoneSignUpInput" type="text" class="validate">
+                    <label for="phoneSignUpInput">Phone Number</label>
+                </div>
+                <div class="input-field col s6 right">
+                    <input id="emailSignUpInput" type="email" class="validate">
+                    <label for="emailSignUpInput">Email</label>
+                </div>
+            </div>
+            <div class="row password">
+                <div class="input-field col s6 left">
+                    <input id="passwordSignUpInput1" type="password" class="validate">
+                    <label for="passwordSignUpInput1">Password</label>
+                </div>
+                <div class="input-field col s6 right">
+                    <input id="passwordSignUpInput2" type="password" class="validate">
+                    <label for="passwordSignUpInput2">Reenter Password for Validation</label>
+                </div>
+            </div>
+            <button id="signUpButton" class="btn blue-grey waves-effect waves-light w100" type="submit" name="action">Sign Up</button>
+            <br>
+            <div class="loginWith">
+                <p class="center">Or Sign Up with(These icons are placeholders)</p>
+                <div class="center">
+                    <a href=""><i class="fa fa-facebook-square fa-3x"></i></a>
+                    <a href=""><i class="fa fa-google-plus-square fa-3x"></i></a>
+                    <a href=""><i class="fa fa-twitter-square fa-3x"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+    // for modal popup
+    $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+
+    // locators
+
+    // input fields
+    var emailLoginInput = $("#emailLogin");
+    var passwordLoginInput = $("#passwordLogin");
+    var nameSignUpInput = $("#nameSignUpInput");
+    var phoneSignUpInput = $("#phoneSignUpInput");
+    var emailSignUpInput = $("#emailSignUpInput");
+    var passwordSignUpInput1 = $("#passwordSignUpInput1");
+    var passwordSignUpInput2 = $("#passwordSignUpInput2");
+
+    // buttons
+
+    var loginButton = $("#loginButton");
+    var signUpButton = $("#signUpButton");
+
+    // clicklisteners
+
+    loginButton.on("click", loginClick);
+    signUpButton.on("click", signUpClick);
+
+    // clicklistener functions
+    function loginClick(e){
+        e.preventDefault();
+
+        var email = emailLoginInput.val().trim();
+        var password = passwordLoginInput.val().trim();
+
+        var loginObject = {
+            email: email,
+            password: password
+        };
+
+        console.log(loginObject);
+
+        emailLoginInput.val("");
+        passwordLoginInput.val("");
+
+    }
+
+        function signUpClick(e){
+            var password1 = passwordSignUpInput1.val().trim();
+            var password2 = passwordSignUpInput2.val().trim();
+
+            if (password1 === password2 && password1.length > 3) {
+                e.preventDefault();
+                var password = password1;   
+                var name = nameSignUpInput.val().trim();
+                var email = emailSignUpInput.val().trim();
+                var phone = phoneSignUpInput.val().trim();
+                var password1 = passwordSignUpInput1.val().trim();
+                var password2 = passwordSignUpInput2.val().trim();
+
+                var signUpObject = {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    password: password
+                };
+
+                console.log(signUpObject);
+
+                nameSignUpInput.val("");
+                emailSignUpInput.val("");
+                phoneSignUpInput.val("");
+                passwordSignUpInput1.val("");
+                passwordSignUpInput2.val("");
+            } else if (password1 <= 3) {
+                alert("Your password must be four characters or longer.");
+            } else {
+                alert("Your passwords do not match.");
+                }
+        }
+
+  });
+    </script>
+</body>
+
+</html>
