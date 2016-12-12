@@ -86,6 +86,9 @@ var orm = {
       cb(result);
     });
   }
+
+  //query to find fav pets
+
 };
 
 // Export the orm object for the model (cat.js).
