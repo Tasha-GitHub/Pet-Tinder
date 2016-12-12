@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <div>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search</title>
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <!-- Bootstrap CSS -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="css/hover.css">
+        <link rel="stylesheet" href="css/alertify.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/multiplePageStyle.css">
+    </div>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l3 side-menu">
+                <section class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Search Parameters</h4>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            
+                            <div class="form-group">
+                                <p><label for="searchTerm">Search Term:</label></p>
+                                <input type="text" class="form-control" id="searchTerm">
+                            </div>
+                            <div class="form-group">
+                                <p><label for="location">Location:</label></p>
+                                <input type="text" class="form-control" id="location">
+                            </div>
+                            <div class="form-group">
+                                <p><label for="age">Age:</label></p>
+                                <input type="text" class="form-control" id="age">
+                            </div>
+                            <div class="form-group">
+                                <p><label for="weight">Weight:</label></p>
+                                <input type="text" class="form-control" id="weight">
+                            </div>
+                            <div class="form-group">
+                            <p>Gender:</p>
+                            <input name="grp1" type="radio" id="male">
+                            <label for="male">Male</label>
+                           
+                            <input name="grp1" type="radio" id="female">
+                            <label for="female">Female</label>
+                             </div>
+                             <div class="form-group">
+                             <p>Breeds:</p>
+                             <p>
+                            <input name="grp1" type="radio" id="pitbull">
+                            <label for="pitbull">Pitbull</label>
+                            </p>
+                            <p>
+                            <input name="grp1" type="radio" id="labrador">
+                            <label for="labrador">Labrador</label>
+                            </p>
+                            <p>
+                            <input name="grp1" type="radio" id="frenchBulldog">
+                            <label for="frenchBulldog">French Bulldog</label>
+                            </p>
+                            <p>
+                            <input name="grp1" type="radio" id="bostonTerrier">
+                            <label for="bostonTerrier">Boston Terrier</label>
+                            </p>
+                            </div>
+                            <br>
+                            <br>
+                            
+                            <button type="submit" class="btn center-align" id="runSearch"><i class="material-icons center-align">search</i>Search</button>
+                            <button type="button" class="btn center-align" id="clearAll"><i class="material-icons center-align">delete</i>Clear Search</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+            <div class="col s12 m12 l9">
+                <div class="wrapper center-align photo">
+                    <img src="http://placehold.it/600x600" alt="Pet">
+                </div>
+                <br>
+                <div class="center-align">
+                    <a class="btn-floating btn-large waves-effect waves-light blue like"><i class="large material-icons">thumb_up</i></a>
+                    <a class="btn-floating btn-large waves-effect waves-light red dislike"><i class="large material-icons">thumb_down</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
