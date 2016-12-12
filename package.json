@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/Tasha-GitHub/Pet-Tinder/issues"
   },
-  "homepage": "https://github.com/Tasha-GitHub/Pet-Tinder#readme"
+  "homepage": "https://github.com/Tasha-GitHub/Pet-Tinder#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mysql": "^2.12.0"
+  }
 }
