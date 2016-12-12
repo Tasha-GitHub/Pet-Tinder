@@ -2,26 +2,37 @@
 <html>
 
 <head>
-    <div>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Search</title>
-        <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-        <!-- Bootstrap CSS -->
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/hover.css">
-        <link rel="stylesheet" href="assets/css/alertify.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/searchStyle.css">
-        <link rel="stylesheet" type="text/css" href="assets/css/multiplePageStyle.css">
-    </div>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="325217804379-ho689du9mueiu3q688lpspcsqurf03u7.apps.googleusercontent.com">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/hover.css">
+    <link rel="stylesheet" href="assets/css/alertify.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/searchStyle.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/multiplePageStyle.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/login.css">
 </head>
 
 <body>
+    <script src="../javascript/facebookLogin.js"></script>
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <!-- Overlay content -->
+        <div class="overlay-content">
+            <button id="loginModalButton" data-target="loginModal" class="btn blue-grey waves-light waves-effect modal-close">Login</button>
+            <button id="signUpModalButton" data-target="signUpModal" class="btn blue-grey waves-light waves-effect modal-close">Sign Up</button>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <nav>
+                <button class="btn" onclick="openNav()">Login/Sign Up</button>
             </nav>
         </div>
         <div class="row">
@@ -32,7 +43,6 @@
                     </div>
                     <div class="panel-body">
                         <form role="form">
-                            
                             <div class="form-group">
                                 <p><label for="searchTerm">Search Term:</label></p>
                                 <input type="text" class="form-control" id="searchTerm">
@@ -50,35 +60,33 @@
                                 <input type="text" class="form-control" id="weight">
                             </div>
                             <div class="form-group">
-                            <p>Gender:</p>
-                            <input name="grp1" type="radio" id="male">
-                            <label for="male">Male</label>
-                           
-                            <input name="grp1" type="radio" id="female">
-                            <label for="female">Female</label>
-                             </div>
-                             <div class="form-group">
-                             <p>Breeds:</p>
-                             <p>
-                            <input name="grp1" type="radio" id="pitbull">
-                            <label for="pitbull">Pitbull</label>
-                            </p>
-                            <p>
-                            <input name="grp1" type="radio" id="labrador">
-                            <label for="labrador">Labrador</label>
-                            </p>
-                            <p>
-                            <input name="grp1" type="radio" id="frenchBulldog">
-                            <label for="frenchBulldog">French Bulldog</label>
-                            </p>
-                            <p>
-                            <input name="grp1" type="radio" id="bostonTerrier">
-                            <label for="bostonTerrier">Boston Terrier</label>
-                            </p>
+                                <p>Gender:</p>
+                                <input name="grp1" type="radio" id="male">
+                                <label for="male">Male</label>
+                                <input name="grp1" type="radio" id="female">
+                                <label for="female">Female</label>
+                            </div>
+                            <div class="form-group">
+                                <p>Breeds:</p>
+                                <p>
+                                    <input name="grp1" type="radio" id="pitbull">
+                                    <label for="pitbull">Pitbull</label>
+                                </p>
+                                <p>
+                                    <input name="grp1" type="radio" id="labrador">
+                                    <label for="labrador">Labrador</label>
+                                </p>
+                                <p>
+                                    <input name="grp1" type="radio" id="frenchBulldog">
+                                    <label for="frenchBulldog">French Bulldog</label>
+                                </p>
+                                <p>
+                                    <input name="grp1" type="radio" id="bostonTerrier">
+                                    <label for="bostonTerrier">Boston Terrier</label>
+                                </p>
                             </div>
                             <br>
                             <br>
-                            
                             <button type="submit" class="btn center-align" id="runSearch"><i class="material-icons center-align">search</i>Search</button>
                             <button type="button" class="btn center-align" id="clearAll"><i class="material-icons center-align">delete</i>Clear Search</button>
                         </form>
@@ -172,11 +180,87 @@
             <li><a href="https://www.linkedin.com/in/randal-rowland-186523124" class="waves-effect" target="_blank">Linkedin <img src="assets/images/linkedin.png"></a></li>
             <li><a class="waves-effect" href="https://twitter.com/rjrowland" target="_blank">Twitter <img src="assets/images/twitter.png"></a></li>
           </ul>
-          <a href="#" data-activates="slide-outr" class="button-collapse tooltipped" data-position="top" data-delay="50" data-tooltip="Randal's Social Networks.">Randal</a> 2016</small> 
+          <a href="#" data-activates="slide-outr" class="button-collapse tooltipped" data-position="top" data-delay="50" data-tooltip="Randal's Social Networks.">Randal</a> 2016</small>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- Modals for Login and Sign Up -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Log Into Fetch</h4>
+            <div class="email row">
+                <div class="input-field col s12">
+                    <input id="emailLogin" type="email" class="validate">
+                    <label for="emailLogin">Email or Username</label>
+                </div>
+            </div>
+            <div class="password row">
+                <div class="input-field col s12">
+                    <input id="passwordLogin" type="password" class="validate">
+                    <label for="passwordLogin">Password</label>
+                </div>
+            </div>
+            <button id="loginButton" class="btn blue-grey waves-effect waves-ligh w100" type="submit" name="action">Login</button>
+            <br>
+            <div class="loginWith">
+                <p class="center">Login With:</p>
+                <div class="center row">
+                    <div class="col s6">
+                        <div class="fb-login-button" scope="email" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+                    </div>
+                    <div class="col s6">
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    </div>
+                </div>
+                <p class="center" id="status"></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="signUpModal" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Sign Up for Fetch</h4>
+            <div class="row name">
+                <div class="input-field col s12">
+                    <input id="nameSignUpInput" type="text" class="validate">
+                    <label for="nameSignUpInput">Name</label>
+                </div>
+            </div>
+            <div class="row phone">
+                <div class="input-field col s6 left">
+                    <input id="phoneSignUpInput" type="text" class="validate">
+                    <label for="phoneSignUpInput">Phone Number</label>
+                </div>
+                <div class="input-field col s6 right">
+                    <input id="emailSignUpInput" type="email" class="validate">
+                    <label for="emailSignUpInput">Email</label>
+                </div>
+            </div>
+            <div class="row password">
+                <div class="input-field col s6 left">
+                    <input id="passwordSignUpInput1" type="password" class="validate">
+                    <label for="passwordSignUpInput1">Password</label>
+                </div>
+                <div class="input-field col s6 right">
+                    <input id="passwordSignUpInput2" type="password" class="validate">
+                    <label for="passwordSignUpInput2">Reenter Password for Validation</label>
+                </div>
+            </div>
+            <button id="signUpButton" class="btn blue-grey waves-effect waves-light w100" type="submit" name="action">Sign Up</button>
+            <br>
+            <div class="loginWith">
+                <p class="center">Sign Up With:</p>
+                <div class="center row">
+                    <div class="col s6 fb-login-button w100" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+                    <div class="col s6 g-signin2 w100" data-onsuccess="onSignIn"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script src="javascript/login.js"></script>
 </body>
 
 </html>
