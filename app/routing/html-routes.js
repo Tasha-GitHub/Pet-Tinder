@@ -19,10 +19,6 @@ module.exports = function (app) {
   		res.sendFile(path.join(__dirname, "/../public/search.html"));
 	});
 
-	app.get("/login", function(req, res) {
-  		res.sendFile(path.join(__dirname, "/../public/login-jpm.html"));
-	});
-
 	app.get("/favorites", function(req, res) {
 	  res.sendFile(path.join(__dirname, "/../public/favorites.html"));
 	});
