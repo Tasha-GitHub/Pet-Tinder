@@ -32,12 +32,23 @@
             <button id="signUpModalButton" data-target="signUpModal" class="btn blue-grey waves-light waves-effect modal-close">Sign Up</button>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row">
-            <nav>
-                <button class="btn" onclick="openNav()">Login/Sign Up</button>
+    <div class="container-fluid content">
+            <nav class="row">
+                <div class="nav-wrapper s12 m12 l12">
+                  <a href="#!" class="brand-logo">Fetch</a>
+                  <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                  <ul class="right hide-on-med-and-down">
+                    <li><a href="/favorites">Favorites</a></li>
+                    <li><a href="/search">Search Pets</a></li>
+                    <li><button class="btn" onclick="openNav()">Login/Sign Up</button></li>
+                  </ul>
+                  <ul class="side-nav" id="mobile">
+                    <li><a href="/favorites">Favorites</a></li>
+                    <li><a href="/search">Search Pets</a></li>
+                    <li><button class="btn" onclick="openNav()">Login/Sign Up</button></li>
+                  </ul>
+                </div>
             </nav>
-        </div>
         <div class="row">
             <div class="col s12 m12 l3 side-menu">
                 <section class="panel panel-primary">
@@ -264,6 +275,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script src="javascript/login.js"></script>
+    <script src="javascript/frontend.js"></script>
 </body>
 
 </html>
