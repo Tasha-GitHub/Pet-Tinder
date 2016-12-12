@@ -36,18 +36,8 @@ app.use(express.static(__dirname + "/app/public"));
 // This sets up the basic connections for our server
 // ==============================================================================
 
-var connection;
-if(process.env.JAWSDB_URL){
-  connection = mysql.createConnection(process.env.JAWSDB_URL);
-}else{
-	connection = mysql.createConnection({
-	host: "localhost",
-	user: "root",
-	password: "",
-	database: "fetch_db"
-	});
-
-} 
+// connect to the MySql Database
+var connection = require("./app/routing/connection.js")
 
 // ================================================================================
 // ROUTER
