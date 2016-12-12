@@ -16,11 +16,12 @@
 .side-menu{
 	border-right: solid 3px gray;
 
-
+}
 /*------------------stickey footer------------------------------*/
 html {
   height: 100%;
 }
+
 body {
   min-height: 100%;
   display: flex;
