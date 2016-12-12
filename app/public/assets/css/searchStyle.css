@@ -1,0 +1,19 @@
+
+/* ---------style for pet picture----------- */
+.photo{
+	margin-left:0px;
+	margin-right:0px;
+	margin-top: 50px;
+	margin-bottom: 0px;
+}
+
+.like,
+.dislike{
+	margin-right: 25px;
+	margin-left: 25px;
+}
+
+.side-menu{
+	border-right: solid 3px gray;
+
+}
