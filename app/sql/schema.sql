@@ -106,3 +106,14 @@ CREATE TABLE user (
 	user_id VARCHAR(50) NOT NULL,
 	pet_id INT NOT NULL
 	);
+
+
+	-- query to get favroite
+	select users.name , pets.name
+	FROM user JOIN pets JOIN userfavs
+	ON userfavs.user_id = userfavs.user_id
+	and favs.pet_id = pets.pet_id; 
+
+	--check the query
+	--should fetch all the fav pets by usr 1
+	select * from userfavs where user_id = 1;
