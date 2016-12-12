@@ -7,10 +7,10 @@
 	margin-bottom: 0px;
 }
 
-.like,
-.dislike{
-	margin-right: 25px;
-	margin-left: 25px;
+.favorite,
+.arrow{
+	margin-right: 100px;
+	margin-left: 100px;
 }
 
 .side-menu{
