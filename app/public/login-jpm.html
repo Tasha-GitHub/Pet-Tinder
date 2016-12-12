@@ -5,8 +5,11 @@
     <title>Fetch Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="325217804379-ho689du9mueiu3q688lpspcsqurf03u7.apps.googleusercontent.com">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <style>
         .buttons {
             height: 100px;
@@ -76,7 +79,7 @@
                 <p class="center">Or Login with(These icons are placeholders)</p>
                 <div class="center">
                     <a href=""><i class="fa fa-facebook-square fa-3x"></i></a>
-                    <a href=""><i class="fa fa-google-plus-square fa-3x"></i></a>
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
                     <a href=""><i class="fa fa-twitter-square fa-3x"></i></a>
                 </div>
             </div>
@@ -125,6 +128,37 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+    function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+
+        var info = {
+            id: profile.getId(),
+            fullname: profile.getName(),
+            firstname: profile.getGivenName(),
+            lastname: profile.getFamilyName(),
+            photo: profile.getImageUrl(),
+            email: profile.getEmail()
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/login",
+            data: info
+        });
+      };
+
+    </script>
     <script>
     // for modal popup
     $(document).ready(function(){
