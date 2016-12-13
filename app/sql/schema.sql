@@ -103,10 +103,9 @@ CREATE TABLE user (
 
 
 	CREATE TABLE userfavs (
-	user_id VARCHAR(50) NOT NULL,
+	user_id INT NOT NULL,
 	pet_id INT NOT NULL
 	);
-
 
 	-- query to get favroite
 	select users.name , pets.name

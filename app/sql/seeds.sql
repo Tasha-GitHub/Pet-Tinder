@@ -46,3 +46,15 @@ INSERT INTO user(name, user_name, password, address) values
 
 INSERT INTO user(name, user_name, password, address) values
 ("Shweta", "shweta@gmail.com", "rane", "austin");
+
+
+
+-- Favs table dummy data--
+INSERT INTO userfavs(user_id , pet_id) values (1,1);
+INSERT INTO userfavs(user_id , pet_id) values (1,2);
+INSERT INTO userfavs(user_id , pet_id) values (4,3);
+INSERT INTO userfavs(user_id , pet_id) values (2,4);
+INSERT INTO userfavs(user_id , pet_id) values (2,1);
+INSERT INTO userfavs(user_id , pet_id) values (3,2);
+INSERT INTO userfavs(user_id , pet_id) values (3,2);
+INSERT INTO userfavs(user_id , pet_id) values (4,6);
