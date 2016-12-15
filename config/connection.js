@@ -10,7 +10,7 @@ if(process.env.JAWSDB_URL){
     host: 'localhost',
     user: 'root',
     password: '',
-    database : "fecth_db"
+    database : "fetch_db"
   });
 };
 

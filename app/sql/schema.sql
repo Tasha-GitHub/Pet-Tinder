@@ -103,16 +103,17 @@ CREATE TABLE user (
 
 
 	CREATE TABLE userfavs (
-	user_id VARCHAR(50) NOT NULL,
+	user_id INT NOT NULL,
 	pet_id INT NOT NULL
 	);
 
-
 	-- query to get favroite
-	select users.name , pets.name
+	-- heroku db : use ingtmx84iluwdw2d;
+	-- query to get favroite
+	select user.name , pets.name, user.user_id, pets.pet_id
 	FROM user JOIN pets JOIN userfavs
-	ON userfavs.user_id = userfavs.user_id
-	and favs.pet_id = pets.pet_id; 
+	ON userfavs.user_id = user.user_id
+	and userfavs.pet_id = pets.pet_id; 
 
 	--check the query
 	--should fetch all the fav pets by usr 1
