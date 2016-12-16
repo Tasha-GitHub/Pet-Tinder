@@ -26,7 +26,7 @@
 
           // Create the materialize card and 
           var savedPet = $("<div>");
-          savedPet.addClass("card");
+          savedPet.addClass("card col s12 m4");
           savedPet.attr("id", favorites[i].id);
           
           // add the pet image to the saved pet card
