@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/searchStyle.css">
     <link rel="stylesheet" type="text/css" href="assets/css/multiplePageStyle.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/jTinder.css">
     <!--link to favicon -->
     <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon" />
 </head>
@@ -107,16 +108,24 @@
                     </div>
                 </section>
             </div>
-            <div class="col s12 m12 l9">
-                <div class="wrapper center-align photo">
-                    <img src="http://placehold.it/500x500" alt="Pet">
+            
+            <div class="col s12 m7">
+              <div class="card medium">
+                <div class="card-image">
+                  <img src="http://placehold.it/300x300" alt="Pet">
+                  <span class="card-title">Card Title</span>
                 </div>
-                <br>
-                <div class="center-align">
-                    <a class="btn-floating btn-large waves-effect waves-light favorite"><i class="fa fa-heart red" aria-hidden="true"></i></a>
-                    <a class="btn-floating btn-large waves-effect waves-light arrow"><i class="fa fa-arrow-right green" aria-hidden="true"></i></a>
+                <div class="card-content">
+                  <p>I am a very simple card. I am good at containing small bits of information.
+                  I am convenient because I require little markup to use effectively.</p>
                 </div>
+                <div class="card-action">
+                  <a class="btn-floating btn-large waves-effect waves-light favorite"><i class="fa fa-heart red" aria-hidden="true"></i></a>
+                  <a class="btn-floating btn-large waves-effect waves-light arrow"><i class="fa fa-arrow-right green" aria-hidden="true"></i></a>
+                </div>
+              </div>
             </div>
+                        
         </div>
     </div>
     <!-- footer -->
@@ -276,6 +285,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script src="javascript/login.js"></script>
     <script src="javascript/frontend.js"></script>
+    <!-- jQuery lib -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+
+    <!-- transform2d lib -->
+    <script type="text/javascript" src="js/jquery.transform2d.js"></script>
+
+    <!-- jTinder lib -->
+    <script type="text/javascript" src="js/jquery.jTinder.js"></script>
+
+    <!-- jTinder initialization script -->
+    <script>$("#tinderslide").jTinder();</script>
 </body>
 
 </html>
