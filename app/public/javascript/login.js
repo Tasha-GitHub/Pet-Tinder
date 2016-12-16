@@ -64,11 +64,25 @@
             email: email,
             password: password
         };
-
+        console.log("login")
         console.log(loginObject);
 
         emailLoginInput.val("");
         passwordLoginInput.val("");
+        var currentURL = window.location.origin;
+        $.ajax({
+            type: "POST",
+            url: currentURL + "/login",
+            data: loginObject
+        })
+        .done(function(data){
+            if(data){
+                console.log("your logged in!");
+                location.reload();
+            } else{
+                console.log("invalid password or email");
+            }
+        });
 
     }
 
@@ -91,8 +105,20 @@
                     phone: phone,
                     password: password
                 };
-
+                var currentURL = window.location.origin;
                 console.log(signUpObject);
+                //ajax post to data base to save users email and pass
+                $.ajax({
+                    type: "POST",
+                    url: currentURL + "/create",
+                    data: signUpObject
+                })
+                .done(function(data){
+                    if(data){
+                        console.log("success you created an account!");
+                        location.reload();
+                    }
+                });
 
                 nameSignUpInput.val("");
                 emailSignUpInput.val("");
