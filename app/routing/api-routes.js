@@ -4,6 +4,37 @@
 // ===============================================================================
 var path = require('path');
 var db = require("../models");
+// Require the bcrypt package
+var bcrypt = require('bcrypt-nodejs');
+var salt = bcrypt.genSaltSync(10);
+
+
+// ==============================================================================
+// Bcrypt
+// The below code effectively "starts" our server
+// ==============================================================================
+//var bcrypt = require('bcrypt-nodejs');
+
+console.log("salt "+ salt);
+
+
+var password = "bacon";
+console.log(password);
+
+var hash = bcrypt.hashSync(password);
+console.log("hash: " + hash);
+console.log(bcrypt.compareSync(password, hash)); // true
+var hash = bcrypt.hashSync(password, salt);
+console.log("salty Hash: "+ hash);
+console.log(bcrypt.compareSync(password, hash)); 
+
+
+
+
+
+
+
+
 
 // ===============================================================================
 // ROUTING
@@ -40,7 +71,7 @@ module.exports = function (app) {
 	});
 
 	app.post("/create", function(req, res) {
-		
+
   		db.User.create({
 	      user_name: req.body.email,
 	      user_password: req.body.password
