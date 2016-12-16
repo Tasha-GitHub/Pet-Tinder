@@ -21,6 +21,9 @@ var app = express();
 // Sets an initial port
 var PORT = process.env.PORT || 3000;
 
+//Require our models for syncing
+var db = require("./app/models");
+
 // BodyParser makes it possible for our server to interpret data sent to it.
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,14 +33,13 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(__dirname + "/app/public"));
 
-
 // ==============================================================================
 // Mysql CONFIGURATION
 // This sets up the basic connections for our server
 // ==============================================================================
 
 // connect to the MySql Database
-var connection = require("./app/routing/connection.js")
+// var connection = require("./app/routing/connection.js")
 
 // ================================================================================
 // ROUTER
@@ -45,17 +47,18 @@ var connection = require("./app/routing/connection.js")
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 // ================================================================================
 
-//require("./app/routing/api-routes.js")(app);
+require("./app/routing/api-routes.js")(app);
 require("./app/routing/html-routes.js")(app);
-
 
 // ==============================================================================
 // LISTENER
 // The below code effectively "starts" our server
 // ==============================================================================
-
+//Syncing our sequelize models and then starting our express app
+db.sequelize.sync().then(function(){
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
+});
 });
 
 
