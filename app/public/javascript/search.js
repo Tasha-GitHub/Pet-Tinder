@@ -54,3 +54,5 @@
         }
       });
     }
+    //call favorites function
+    // favoritesQuery();
