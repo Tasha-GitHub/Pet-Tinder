@@ -15,7 +15,6 @@ body {
 
 /*------------------ footer styling------------------------------*/
 footer{
-  background-color: #30353B;
   margin: 0px !important;
   padding: 20px 0px 0px 0px;
   font-family: 'Open Sans', sans-serif;
@@ -23,7 +22,11 @@ footer{
   text-align: center;
   width: 100%;
   min-height: 50px;
-  color: #FFFFFF;
+  color: #1B435D;
+}
+
+#darkBlue{
+  background-color: #1B435D;
 }
 
 .logo {
