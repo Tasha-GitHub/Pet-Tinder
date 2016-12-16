@@ -4,47 +4,15 @@
 // ===============================================================================
 var path = require('path');
 var db = require("../models");
-// Require the bcrypt package
+// Required by the bcrypt package
 var bcrypt = require('bcrypt-nodejs');
 var salt = bcrypt.genSaltSync(10);
-
-
-// ==============================================================================
-// Bcrypt
-// The below code effectively "starts" our server
-// ==============================================================================
-//var bcrypt = require('bcrypt-nodejs');
-
-console.log("salt "+ salt);
-
-
-var password = "bacon";
-console.log(password);
-
-var hash = bcrypt.hashSync(password);
-console.log("hash: " + hash);
-console.log(bcrypt.compareSync(password, hash)); // true
-var hash = bcrypt.hashSync(password, salt);
-console.log("salty Hash: "+ hash);
-console.log(bcrypt.compareSync(password, hash)); 
-
-
-
-
-
-
-
-
 
 // ===============================================================================
 // ROUTING
 // ===============================================================================
 
 module.exports = function (app) {
-	// HTML GET Requests
-	// Below code handles when users "visit" a page.
-	// In each of the below cases the user is shown an HTML page of content
-	// ---------------------------------------------------------------------------
 
 	app.post("/login", function(req, res) {
   		
@@ -55,44 +23,31 @@ module.exports = function (app) {
 	        where: {
 	          user_name: userLogin
 	        }
-	      }).then(function(result) {
-	      	var backendPass = result.dataValues.user_password;
-	      	console.log(result.dataValues.user_password)
-	        if(userPassword === backendPass){
-	        	//sends back true 
-	        	res.json(true);
-	        } else{
-	        	//sends back a false that will not allow the page to refresh
-	        	res.json(false);
-	        }
-	      });
-
-        
+	    }).then(function(result) {
+	      	var passwordConfirmation;
+	      	//grabs users password from db
+	      	var hash = result.dataValues.user_password;
+	      	//compares db password and user entered password
+			bcrypt.compare(userPassword, hash, function(err, result) {
+				// will return true or false depending if the passwords matched up
+			    passwordConfirmation = result;
+			    res.json(passwordConfirmation);
+			});
+	    });
 	});
 
 	app.post("/create", function(req, res) {
+		var password = req.body.password;
+		bcrypt.hash(password, null, null, function(err, hash) {
 
-  		db.User.create({
-	      user_name: req.body.email,
-	      user_password: req.body.password
-	    }).then(function() {
-	      // We have access to the new todo as an argument inside of the callback function
-	      res.json(true);
-	    });
-        
+	    	// Store hash in your password DB.
+	    	db.User.create({
+		      user_name: req.body.email,
+		      user_password: hash
+		    }).then(function() {
+		      // We have access to the new todo as an argument inside of the callback function
+		      res.json(true);
+		    });
+		});        
 	});
-
-
-	// // get route for log in 
- //  app.post("/login/manual", function(req, res) {
- //  	var userLogin = req.body.user_name;
- //  	db.User.findOne({
- //        where: {
- //          user_name: userLogin
- //        }
- //      }).then(function(result) {
- //        return res.json(result);
- //        console.log(result)
- //      });
- //  });
 };
