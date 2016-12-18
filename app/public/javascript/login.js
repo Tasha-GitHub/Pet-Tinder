@@ -64,8 +64,6 @@
             email: email,
             password: password
         };
-        console.log("login")
-        console.log(loginObject);
 
         emailLoginInput.val("");
         passwordLoginInput.val("");
@@ -76,11 +74,15 @@
             data: loginObject
         })
         .done(function(data){
-            if(data){
-                console.log("your logged in!");
+            if(data.confirm){
+                // Emptied the localStorage
+                localStorage.clear();
+                // Store all content into localStorage
+                localStorage.setItem("userID", data.result);
+                //reload page
                 location.reload();
             } else{
-                console.log("invalid password or email");
+                alert("Invalid Password or Email");
             }
         });
 
@@ -115,7 +117,11 @@
                 })
                 .done(function(data){
                     if(data){
-                        console.log("success you created an account!");
+                        // Emptied the localStorage
+                        localStorage.clear();
+                        // Store all content into localStorage
+                        localStorage.setItem("userID", data.result);
+                        //reload page
                         location.reload();
                     }
                 });
