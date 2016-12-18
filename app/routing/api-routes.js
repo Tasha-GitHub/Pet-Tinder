@@ -13,7 +13,7 @@ var userId;
 // ===============================================================================
 
 module.exports = function (app) {
-
+	//logs user in
 	app.post("/login", function(req, res) {
   		var userLogin = req.body.email;
   		var userPassword = req.body.password;
@@ -37,7 +37,7 @@ module.exports = function (app) {
 			});
 	    });
 	});
-
+	//creates a new login
 	app.post("/create", function(req, res) {
 		var password = req.body.password;
 		bcrypt.hash(password, null, null, function(err, hash) {
@@ -51,5 +51,44 @@ module.exports = function (app) {
 		      res.json({confirm: true, result: userId });
 		    });
 		});        
+	});
+	//deletes adopted pet
+	app.delete("/delete_pet",function(req, res){
+		var petId = req.body.id;
+		//deletes the specified pet
+		db.Pet.destroy({
+	      where: {
+	        id: petId
+	      }
+	    }).then(function(response) {
+	    	//response will send back a 1 or 0 depending if the id was present in the database, 
+	    	//use this output to control the response to the front end
+	    	if(response === 0){
+	    		res.json(false);
+	    	}else{
+	    		res.json(true);
+	    	}
+	      
+	    });
+
+	});
+	//creates a new pet
+	app.post("/create_pet",function(req, res){
+		console.log(req.body);
+		var petName = req.body.name;
+		var petAge = req.body.age;
+		var petBreed = req.body.breed;
+		var petColor = req.body.color;
+			//creates a new pet given front end inputs
+			db.Pet.create({
+		      pet_name: petName,
+		      pet_age: petAge,
+		      pet_breed: petBreed ,
+		      pet_color: petColor
+		    }).then(function() {
+		      //send back a response of true when successfully created a pet
+		      res.json(true);
+		    });
+
 	});
 };
