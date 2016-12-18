@@ -65,10 +65,26 @@
             password: password
         };
 
-        console.log(loginObject);
-
         emailLoginInput.val("");
         passwordLoginInput.val("");
+        var currentURL = window.location.origin;
+        $.ajax({
+            type: "POST",
+            url: currentURL + "/login",
+            data: loginObject
+        })
+        .done(function(data){
+            if(data.confirm){
+                // Emptied the localStorage
+                localStorage.clear();
+                // Store all content into localStorage
+                localStorage.setItem("userID", data.result);
+                //reload page
+                location.reload();
+            } else{
+                alert("Invalid Password or Email");
+            }
+        });
 
     }
 
@@ -91,8 +107,24 @@
                     phone: phone,
                     password: password
                 };
-
+                var currentURL = window.location.origin;
                 console.log(signUpObject);
+                //ajax post to data base to save users email and pass
+                $.ajax({
+                    type: "POST",
+                    url: currentURL + "/create",
+                    data: signUpObject
+                })
+                .done(function(data){
+                    if(data){
+                        // Emptied the localStorage
+                        localStorage.clear();
+                        // Store all content into localStorage
+                        localStorage.setItem("userID", data.result);
+                        //reload page
+                        location.reload();
+                    }
+                });
 
                 nameSignUpInput.val("");
                 emailSignUpInput.val("");
