@@ -35,6 +35,14 @@ module.exports = function(sequelize, DataTypes) {
         },
         pet_color: {
             type: DataTypes.STRING,
+        },pet_type: {
+            type: DataTypes.STRING,
+        },pet_gender: {
+            type: DataTypes.STRING,
+        },pet_size: {
+            type: DataTypes.STRING,
+        }, pet_photo: {
+            type: DataTypes.STRING,
         }
     }, {
         timestamps: false
