@@ -80,15 +80,36 @@ module.exports = function (app) {
 		var petBreed = req.body.breed;
 		var petColor = req.body.color;
 			//creates a new pet given front end inputs
-			db.Pet.create({
-		      pet_name: petName,
-		      pet_age: petAge,
-		      pet_breed: petBreed ,
-		      pet_color: petColor
-		    }).then(function() {
-		      //send back a response of true when successfully created a pet
-		      res.json(true);
-		    });
+		db.Pet.create({
+		    pet_name: petName,
+		    pet_age: petAge,
+		    pet_breed: petBreed ,
+		    pet_color: petColor
+		}).then(function() {
+		    //send back a response of true when successfully created a pet
+		    res.json(true);
+		});
+	});
+
+	app.get("/search/:type?/:age?/:size?/:gender?", function(req, res){
+		var type = req.params.type;
+		var age= req.params.age;
+		var size = req.params.size;
+		var gender= req.params.gender;
+		console.log(type + age + size + gender);
+		db.Pet.findAll({
+			where: {
+				pet_type: type,
+				pet_age : age,
+				pet_size : size,
+				pet_gender : gender
+			}
+		})
+        .then(function(result) {
+           return res.json(result);
+          console.log(result.dataValues);
+        });
+
 
 	});
 };
