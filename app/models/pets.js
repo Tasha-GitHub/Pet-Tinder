@@ -35,6 +35,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         pet_color: {
             type: DataTypes.STRING,
+
         },
         pet_type: {
             type: DataTypes.STRING,
@@ -60,6 +61,7 @@ module.exports = function(sequelize, DataTypes) {
                     as: 'petUser'
                 });
             }
+
         }
     });
 
