@@ -43,20 +43,12 @@ $(document).ready(function() {
 		} else{
 			endOfList();
 		}
-		
-
 	});
-
-
-
-
-//update this to have card generator in a function since Im repeating the same code twice
-
 
 
 });
 
-
+//function that fills the main content of the site
 function petCardCreator(){
 	var petName = animalList[counter].pet_name;
 	var petBreed = animalList[counter].pet_breed;
@@ -79,6 +71,7 @@ function petCardCreator(){
 	counter++;
 }
 
+//runs only when the full list of queried pets is done
 function endOfList(){
 	var petName = "No More Pets!";
 	//var petPhoto = animalList[counter].pet_photo;
