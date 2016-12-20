@@ -35,17 +35,34 @@ module.exports = function(sequelize, DataTypes) {
         },
         pet_color: {
             type: DataTypes.STRING,
-        },pet_type: {
+
+        },
+        pet_type: {
             type: DataTypes.STRING,
-        },pet_gender: {
+        },
+        pet_gender: {
             type: DataTypes.STRING,
-        },pet_size: {
+        },
+        pet_size: {
             type: DataTypes.STRING,
-        }, pet_photo: {
+        },
+        pet_photo: {
             type: DataTypes.STRING,
         }
-    }, {
-        timestamps: false
+
+    },{
+        
+        classMethods: {
+            associate: function(models) {
+
+                Pet.belongsToMany(models.User, {
+                    through: 'userfavs',
+                    foreignKey: 'userId',
+                    as: 'petUser'
+                });
+            }
+
+        }
     });
 
     return Pet;
