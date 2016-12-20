@@ -24,9 +24,24 @@ footer{
   min-height: 50px;
   color: #1B435D;
 }
+#fetchLogo {
+  padding-left: 50px;
+  font-family: 'Acme', sans-serif;
+  font-size: 60px;
+  font-color: #FF895D !important;
+}
 
-#darkBlue{
+#headerFooter, #modalColor{
+background-color: #1B435D;
+}
+#mainColor{
+  background-color: #FF895D;
+}
+#runSearch, #clearAll, #log{
   background-color: #1B435D;
+}
+#heart {
+  background-color: #C54C82;
 }
 
 .logo {

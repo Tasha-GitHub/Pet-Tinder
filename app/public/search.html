@@ -18,6 +18,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/searchStyle.css">
     <link rel="stylesheet" type="text/css" href="assets/css/multiplePageStyle.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/login.css">
+    <!--font styling-->
+    <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/jTinder.css">
     <!--link to favicon -->
     <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon" />
@@ -29,24 +31,28 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <!-- Overlay content -->
         <div class="overlay-content">
-            <button id="loginModalButton" data-target="loginModal" class="btn blue-grey waves-light waves-effect modal-close">Login</button>
+            <button id="log" id="loginModalButton" data-target="loginModal">Login</button>
             <button id="signUpModalButton" data-target="signUpModal" class="btn blue-grey waves-light waves-effect modal-close">Sign Up</button>
         </div>
     </div>
-    <div class="container-fluid content">
+    <div class="container-fluid content" id="mainColor">
             <nav class="row">
-                <div class="nav-wrapper s12 m12 l12" id="darkBlue">
-                  <a href="#!" class="brand-logo">Fetch</a>
+                <div class="nav-wrapper s12 m12 l12" id="headerFooter">
+                  <a id="fetchLogo" href="#!" >Fetch</a>
                   <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                   <ul class="right hide-on-med-and-down">
                     <li><a href="/favorites">Favorites</a></li>
                     <li><a href="/search">Search Pets</a></li>
-                    <li><button class="btn" onclick="openNav()">Login/Sign Up</button></li>
+                    <li><a onclick="openNav()" href="/login">Login</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+                    <!-- <li><a class="btn" id="log" onclick="openNav()">Login/Sign Up</li>  -->
                   </ul>
                   <ul class="side-nav" id="mobile">
                     <li><a href="/favorites">Favorites</a></li>
                     <li><a href="/search">Search Pets</a></li>
-                    <li><button class="btn" onclick="openNav()">Login/Sign Up</button></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/signup" onclick="openNav()">Sign Up</a></li>
+                    <!-- <li><button class="btn" onclick="openNav()">Login/Sign Up</button></li> -->
                   </ul>
                 </div>
             </nav>
@@ -103,6 +109,8 @@
                             <br>
                             <br>
                             <button type="submit" class="btn center-align" id="runSearch"><i class="material-icons center-align">search</i>Search</button>
+                            <br>
+                            <br>
                             <button type="button" class="btn center-align" id="clearAll"><i class="material-icons center-align">delete</i>Clear Search</button>
                         </form>
                     </div>
@@ -115,12 +123,12 @@
                   <img src="http://placehold.it/300x300" alt="Pet">
                   <span class="card-title">Card Title</span>
                 </div>
-                <div class="card-content">
+                <div class="card-content" id="modalColor">
                   <p>I am a very simple card. I am good at containing small bits of information.
                   I am convenient because I require little markup to use effectively.</p>
                 </div>
                 <div class="card-action">
-                  <a class="btn-floating btn-large waves-effect waves-light favorite"><i class="fa fa-heart red" aria-hidden="true"></i></a>
+                  <a class="btn-floating btn-large waves-effect waves-light favorite"><i class="fa fa-heart" id="heart" aria-hidden="true"></i></a>
                   <a class="btn-floating btn-large waves-effect waves-light arrow"><i class="fa fa-arrow-right green" aria-hidden="true"></i></a>
                 </div>
               </div>
@@ -129,7 +137,7 @@
         </div>
     </div>
     <!-- footer -->
-    <footer class="page-footer center" id='darkBlue'>
+    <footer class="page-footer center" id='headerFooter'>
         <div class="container">
             <div class="row">
                 <div class="col s12">
@@ -295,7 +303,7 @@
     <script type="text/javascript" src="js/jquery.jTinder.js"></script>
 
     <!-- jTinder initialization script -->
-    <script>$("#tinderslide").jTinder();</script>
+    <!-- <script>$("#tinderslide").jTinder();</script> -->
 </body>
 
 </html>
