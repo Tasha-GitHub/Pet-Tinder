@@ -23,9 +23,20 @@ module.exports = function(sequelize, DataTypes) {
         user_password: {
             type: DataTypes.STRING
         }
-    }, {
-        timestamps: false
-    });
+    },
+        {
+            
+            classMethods: {
+                associate: function(models) {
+
+                    User.belongsToMany(models.Pet, {
+                        through: 'userfavs',
+                        foreignKey: 'petId',
+                        as: 'userPet'
+                    });
+                }
+            }
+        });
 
     return User;
 };
