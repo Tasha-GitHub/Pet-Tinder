@@ -79,12 +79,20 @@ module.exports = function (app) {
 		var petAge = req.body.age;
 		var petBreed = req.body.breed;
 		var petColor = req.body.color;
+		var petGender = req.body.gender;
+		var petSize = req.body.size;
+		var petPhoto = req.body.photo;
+		var petType = req.body.type;
 			//creates a new pet given front end inputs
 		db.Pet.create({
 		    pet_name: petName,
 		    pet_age: petAge,
-		    pet_breed: petBreed ,
-		    pet_color: petColor
+		    pet_breed: petBreed,
+		    pet_color: petColor,
+		    pet_gender: petGender,
+		    pet_size: petSize,
+		    pet_photo: petPhoto,
+		    pet_type: petType
 		}).then(function() {
 		    //send back a response of true when successfully created a pet
 		    res.json(true);
