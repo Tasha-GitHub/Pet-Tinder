@@ -37,9 +37,9 @@ $(document).ready(function() {
 	//clears users inputs
 	$("#clearAll").on("click", function(e){
 		e.preventDefault();
-		$('#type').prop('selected', function() {
-        	return this.defaultSelected;
-    	});
+		var select = $('select');
+	    select.prop('selectedIndex', 0); //Sets the first option as selected
+	    select.material_select();        //Update material select
 	});
 
 	$(".arrow").on("click", function(e){
@@ -52,7 +52,7 @@ $(document).ready(function() {
 				if(petLoaded){
 					petCardCreator();
 				}	
-			} else{
+			}else{
 				endOfList();
 			}
 		}
