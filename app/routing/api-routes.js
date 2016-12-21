@@ -104,7 +104,7 @@ module.exports = function (app) {
 		var age= req.params.age;
 		var size = req.params.size;
 		var gender= req.params.gender;
-		console.log(type + age + size + gender);
+		//console.log(type + age + size + gender);
 		db.Pet.findAll({
 			where: {
 				pet_type: type,
@@ -115,8 +115,27 @@ module.exports = function (app) {
 		})
         .then(function(result) {
            return res.json(result);
-          console.log(result.dataValues);
+          //console.log(result.dataValues);
         });
+
+
+	});
+
+	//adds favorite
+	app.post("/add/favorite", function(req, res){
+		var userId = req.body.user_id;
+		var petId = req.body.pet_id;
+		console.log(req.body)
+		console.log(userId);
+		console.log(petId);
+
+		db.userfavs.create({
+		    user_id: userId,
+		    pet_id: petId,
+		}).then(function() {
+		    //send back a response of true when successfully created a pet
+		    res.json(true);
+		});
 
 
 	});
