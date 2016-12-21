@@ -1,7 +1,7 @@
 //global variables
 var animalList=[];
 var petLoaded=false;
-var counter;
+var counter =0;
 
 $(document).ready(function() {
    	//runs when a user submits a search
@@ -22,9 +22,14 @@ $(document).ready(function() {
 	    	for(var i =0 ; i< res.length ; i++){
 	    		animalList.push(res[i]);
 	    	}
-	    	//reset counter
-	    	counter = 0;
-	    	petCardCreator();
+	  		//checks to see if there are any pets that matched the users search
+	    	if(animalList.length === 0){
+				endOfList();
+			}else{
+				petCardCreator();
+			}
+			//reset counter
+	    	counter = 1;
 	    	petLoaded = true;
 	    });
 	});
@@ -32,16 +37,24 @@ $(document).ready(function() {
 	//clears users inputs
 	$("#clearAll").on("click", function(e){
 		e.preventDefault();
+		$('#type').prop('selected', function() {
+        	return this.defaultSelected;
+    	});
 	});
 
 	$(".arrow").on("click", function(e){
 		e.preventDefault();
-		if(counter < animalList.length){
-			if(petLoaded){
-				petCardCreator();
-			}	
-		} else{
-			endOfList();
+		console.log(animalList.length);
+		if(counter === 0){
+			alert("please start your search to view current pets!");
+		}else{
+			if(counter < animalList.length){
+				if(petLoaded){
+					petCardCreator();
+				}	
+			} else{
+				endOfList();
+			}
 		}
 	});
 
@@ -74,11 +87,11 @@ function petCardCreator(){
 //runs only when the full list of queried pets is done
 function endOfList(){
 	var petName = "No More Pets!";
-	//var petPhoto = animalList[counter].pet_photo;
+	var petPhoto = "assets/images/sad.png";
 	var petDesription = "Uh oh you have searched all available pets! Please refine your search and try again.";
 	    	
 	$(".card-title").html(petName);
-	//$("#petPhoto").attr("src", petPhoto);
+	$("#petPhoto").attr("src", petPhoto);
 	var cardDescription = $("<div>");
 	cardDescription.html(petDesription);
 	$(".card-content").html(cardDescription);
