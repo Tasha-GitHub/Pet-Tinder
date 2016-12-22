@@ -79,12 +79,22 @@ module.exports = function (app) {
 		var petAge = req.body.age;
 		var petBreed = req.body.breed;
 		var petColor = req.body.color;
+		var petGender = req.body.gender;
+		var petSize = req.body.size;
+		var petPhoto = req.body.photo;
+		var petType = req.body.type;
+		var petDescription = req.body.description;
 			//creates a new pet given front end inputs
 		db.Pet.create({
 		    pet_name: petName,
 		    pet_age: petAge,
-		    pet_breed: petBreed ,
-		    pet_color: petColor
+		    pet_breed: petBreed,
+		    pet_color: petColor,
+		    pet_gender: petGender,
+		    pet_size: petSize,
+		    pet_photo: petPhoto,
+		    pet_type: petType,
+		    pet_description: petDescription
 		}).then(function() {
 		    //send back a response of true when successfully created a pet
 		    res.json(true);
@@ -96,7 +106,7 @@ module.exports = function (app) {
 		var age= req.params.age;
 		var size = req.params.size;
 		var gender= req.params.gender;
-		console.log(type + age + size + gender);
+		//console.log(type + age + size + gender);
 		db.Pet.findAll({
 			where: {
 				pet_type: type,
@@ -107,9 +117,46 @@ module.exports = function (app) {
 		})
         .then(function(result) {
            return res.json(result);
-          console.log(result.dataValues);
+          //console.log(result.dataValues);
         });
 
 
 	});
+
+	//adds favorite
+	app.post("/add/favorite", function(req, res){
+		var userId = req.body.user_id;
+		var petId = req.body.pet_id;
+		console.log(req.body)
+		console.log(userId);
+		console.log(petId);
+
+		db.userfav.create({
+		    userId: userId,
+		    PetId: petId,
+		}).then(function() {
+		    //send back a response of true when successfully created a pet
+		    res.json(true);
+		});
+
+
+	});
+
+	app.get("/users/:userID?", function(req, res){
+		var userId = req.params.userID;
+		console.log(userId);
+		db.userfav.findAll({
+			where: {
+				userId : userId
+			},
+      		include: [db.Pet]
+		})
+        .then(function(result) {
+           return res.json(result);
+           console.log(result);
+        });
+
+
+	});
+
 };
