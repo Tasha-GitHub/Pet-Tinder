@@ -83,6 +83,7 @@ module.exports = function (app) {
 		var petSize = req.body.size;
 		var petPhoto = req.body.photo;
 		var petType = req.body.type;
+		var petDescription = req.body.description;
 			//creates a new pet given front end inputs
 		db.Pet.create({
 		    pet_name: petName,
@@ -92,7 +93,8 @@ module.exports = function (app) {
 		    pet_gender: petGender,
 		    pet_size: petSize,
 		    pet_photo: petPhoto,
-		    pet_type: petType
+		    pet_type: petType,
+		    pet_description: petDescription
 		}).then(function() {
 		    //send back a response of true when successfully created a pet
 		    res.json(true);
@@ -129,9 +131,9 @@ module.exports = function (app) {
 		console.log(userId);
 		console.log(petId);
 
-		db.userfavs.create({
-		    user_id: userId,
-		    pet_id: petId,
+		db.userfav.create({
+		    userId: userId,
+		    PetId: petId,
 		}).then(function() {
 		    //send back a response of true when successfully created a pet
 		    res.json(true);
@@ -139,4 +141,22 @@ module.exports = function (app) {
 
 
 	});
+
+	app.get("/users/:userID?", function(req, res){
+		var userId = req.params.userID;
+		console.log(userId);
+		db.userfav.findAll({
+			where: {
+				userId : userId
+			},
+      		include: [db.Pet]
+		})
+        .then(function(result) {
+           return res.json(result);
+           console.log(result);
+        });
+
+
+	});
+
 };
