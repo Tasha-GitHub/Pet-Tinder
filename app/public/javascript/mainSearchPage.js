@@ -4,6 +4,8 @@ var petLoaded=false;
 var counter =0;
 var currentPet_id;
 var currentUser_id;
+// Emptied the localStorage
+      localStorage.clear();
 
 $(document).ready(function() {
    	//runs when a user submits a search
