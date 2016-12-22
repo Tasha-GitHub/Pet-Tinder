@@ -159,4 +159,28 @@ module.exports = function (app) {
 
 	});
 
+		//deletes favorite pet
+	app.delete("/delete/favorite",function(req, res){
+		var petId = req.body.id;
+		var userId =req.body.user;
+		//deletes the specified pet
+		db.userfav.destroy({
+	      where: {
+	        PetId: petId,
+	        userId: userId
+
+	      }
+	    }).then(function(response) {
+	    	//response will send back a 1 or 0 depending if the id was present in the database, 
+	    	//use this output to control the response to the front end
+	    	if(response === 0){
+	    		res.json(false);
+	    	}else{
+	    		res.json(true);
+	    	}
+	      
+	    });
+
+	});
+
 };
