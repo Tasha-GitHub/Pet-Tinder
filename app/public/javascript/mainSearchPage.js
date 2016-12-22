@@ -2,6 +2,10 @@
 var animalList=[];
 var petLoaded=false;
 var counter =0;
+var currentPet_id;
+var currentUser_id;
+// Emptied the localStorage
+//localStorage.clear();
 
 $(document).ready(function() {
    	//runs when a user submits a search
@@ -41,7 +45,7 @@ $(document).ready(function() {
 	    select.prop('selectedIndex', 0); //Sets the first option as selected
 	    select.material_select();        //Update material select
 	});
-
+	//next arrow functionality
 	$(".arrow").on("click", function(e){
 		e.preventDefault();
 		console.log(animalList.length);
@@ -57,6 +61,30 @@ $(document).ready(function() {
 			}
 		}
 	});
+	//adds favorite
+	$(".favorite").on("click", function(e){
+		e.preventDefault();
+		console.log(counter);
+		console.log(animalList.length);
+		if(petLoaded === false){
+			alert("please start your search to view current pets!");
+		}else{
+			if(counter < animalList.length){
+				getUserID();
+				favoritePet();
+			    //then load new card
+				petCardCreator();
+					
+			}else{
+				getUserID();
+				favoritePet();
+				//load last card
+				endOfList();
+			}
+		}
+
+	});
+
 
 
 });
@@ -69,6 +97,8 @@ function petCardCreator(){
 	var petPhoto = animalList[counter].pet_photo;
 	var petGender = animalList[counter].pet_gender;
 	var petSize = animalList[counter].pet_size;
+	currentPet_id = animalList[counter].id;
+	
 	//var petDesription = animalList[counter].pet_description;
 	    	
 	$(".card-title").html(petName);
@@ -95,5 +125,41 @@ function endOfList(){
 	var cardDescription = $("<div>");
 	cardDescription.html(petDesription);
 	$(".card-content").html(cardDescription);
-	counter++;
+	counter = 0;
 }
+
+// retrieves usersID from local storage
+function getUserID(){
+	if (JSON.parse(localStorage.getItem("userID"))) {
+
+      var storedUserID = JSON.parse(localStorage.getItem("userID"));
+
+      // Sets the global current user id variable equal to the stored ID
+      currentUser_id = storedUserID;
+  }
+}
+
+function favoritePet(){
+				console.log("counter"+counter);
+				console.log("animals loaded"+animalList.length);
+				console.log("pet loaded" +petLoaded);
+				console.log("current pet"+currentPet_id);
+				console.log("current pet id"+currentPet_id);
+						var favorite = {
+						pet_id : currentPet_id,
+						user_id : currentUser_id
+					}
+					console.log(favorite);
+					//adds pet to favorites
+					$.ajax({
+			            type: "POST",
+			            url: "/add/favorite",
+			            data: favorite
+			        }).then(function(){
+			        	alert("pet added to favorites");
+			        });
+
+}
+
+
+
