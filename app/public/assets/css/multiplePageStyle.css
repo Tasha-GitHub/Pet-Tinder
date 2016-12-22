@@ -32,7 +32,7 @@ footer{
 }
 
 #headerFooter, #modalColor{
-background-color: #1B435D;
+  background-color: #1B435D;
 }
 #mainColor{
   background-color: #FF895D;
@@ -47,6 +47,15 @@ background-color: #1B435D;
 .logo {
   width: 34px;
 }
+h4 {
+  color: #1B435D;
+}
+/*------------------ drop down search styling -------------------*/
+#Animaltype {
+  color: #1B435D;
+}
+/*------------------ modal styling ------------------------------*/
+
 
 /*------------------ media queries ------------------------------*/
 

@@ -31,7 +31,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <!-- Overlay content -->
         <div class="overlay-content">
-            <button id="log" id="loginModalButton" data-target="loginModal">Login</button>
+            <button id="log" id="loginModalButton" data-target="loginModal" class="btn blue-grey waves-light waves-effect modal-close">Login</button>
             <button id="signUpModalButton" data-target="signUpModal" class="btn blue-grey waves-light waves-effect modal-close">Sign Up</button>
         </div>
     </div>
@@ -41,18 +41,17 @@
                   <a id="fetchLogo" href="#!" >Fetch</a>
                   <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                   <ul class="right hide-on-med-and-down">
-                    <li><a href="/favorites">Favorites</a></li>
+                    <li><a class="right-align" href="/favorites">Favorites</a></li>
                     <li><a href="/search">Search Pets</a></li>
-                    <li><a onclick="openNav()" href="/login">Login</a></li>
-                    <li><a href="/signup">Sign Up</a></li>
-                    <!-- <li><a class="btn" id="log" onclick="openNav()">Login/Sign Up</li>  -->
+                    <li><a id="log" onclick="openNav()">Login or Sign Up</li>
+                    <!-- <li><a id="log" onclick="openNav()">Sign Up</li> -->  
                   </ul>
                   <ul class="side-nav" id="mobile">
                     <li><a href="/favorites">Favorites</a></li>
                     <li><a href="/search">Search Pets</a></li>
                     <li><a href="/login">Login</a></li>
-                    <li><a href="/signup" onclick="openNav()">Sign Up</a></li>
-                    <!-- <li><button class="btn" onclick="openNav()">Login/Sign Up</button></li> -->
+                    <li><a href="/signup">Sign Up</a></li>
+                    <li><a id="log" onclick="openNav()">Login or Sign Up</li>
                   </ul>
                 </div>
             </nav>
@@ -66,7 +65,7 @@
                         <form role="form">
                               <div class="input-field col s12 m12 l12">
                                 <select id="type">
-                                  <option value="" disabled selected>Animal Type</option>
+                                  <option id="animalType" value="" disabled selected>Animal Type</option>
                                   <option value="cat">Cat</option>
                                   <option value="dog">Dog</option>
                                 </select>
@@ -126,10 +125,10 @@
                 </section>
             </div>
             
-            <div class="col s12 m7">
-              <div class="card medium">
+            <div id="modalSection" class="col s12 m7">
+              <div class="card medium center valign-wrapper">
                 <div class="card-image">
-                  <img id="petPhoto" src="assets/images/adopt.jpg" alt="Pet">
+                  <!-- <img id="petPhoto" src="assets/images/adopt.jpg" alt="Pet"> -->
                   <span class="card-title"></span>
                 </div>
 
@@ -184,7 +183,7 @@
             <li><a class="waves-effect" href="https://www.linkedin.com/in/jesse-matherne-07333255/" target="_blank">Linkedin <img src="assets/images/linkedin.png"></a></li>
             <li><a class="waves-effect" href="https://twitter.com/JesseMatherne" target="_blank">Twitter <img src="assets/images/twitter.png"></a></li>
           </ul>
-          <a href="#" data-activates="slide-outj" class="button-collapse tooltipped" data-position="top" data-delay="50" data-tooltip="Jesse's Social Networks.">Jessie</a>,
+          <a href="#" data-activates="slide-outj" class="button-collapse tooltipped" data-position="top" data-delay="50" data-tooltip="Jesse's Social Networks.">Jesse</a>,
 
            <ul id="slide-outm" class="side-nav">
             <li>
@@ -290,10 +289,10 @@
             <button id="signUpButton" class="btn blue-grey waves-effect waves-light w100" type="submit" name="action">Sign Up</button>
             <br>
             <div class="loginWith">
-                <p class="center">Sign Up With:</p>
+                <br>
                 <div class="center row">
                     <div class="col s6 fb-login-button w100" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
-                    <div class="col s6 g-signin2 w100" data-onsuccess="onSignIn"></div>
+                    <div class="col s6 g-signin2 w100" data-size="large" data-onsuccess="onSignIn"></div>
                 </div>
             </div>
         </div>
