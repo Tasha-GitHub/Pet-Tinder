@@ -24,7 +24,7 @@
 </head>
 
 <body>
-    <script src="../javascript/facebookLogin.js"></script>
+    
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <!-- Overlay content -->
@@ -58,30 +58,39 @@
                     </div>
                     <div class="panel-body">
                         <form role="form">
-                            <div class="form-group">
-                                <p><label for="searchTerm">Search Term:</label></p>
-                                <input type="text" class="form-control" id="searchTerm">
-                            </div>
-                            <div class="form-group">
-                                <p><label for="location">Location:</label></p>
-                                <input type="text" class="form-control" id="location">
-                            </div>
-                            <div class="form-group">
-                                <p><label for="age">Age:</label></p>
-                                <input type="text" class="form-control" id="age">
-                            </div>
-                            <div class="form-group">
-                                <p><label for="weight">Weight:</label></p>
-                                <input type="text" class="form-control" id="weight">
-                            </div>
-                            <div class="form-group">
-                                <p>Gender:</p>
-                                <input name="grp1" type="radio" id="male">
-                                <label for="male">Male</label>
-                                <input name="grp1" type="radio" id="female">
-                                <label for="female">Female</label>
-                            </div>
-                            <div class="form-group">
+                              <div class="input-field col s12 m12 l12">
+                                <select id="type">
+                                  <option value="" disabled selected>Animal Type</option>
+                                  <option value="cat">Cat</option>
+                                  <option value="dog">Dog</option>
+                                </select>
+                              </div>
+                              <div class="input-field col s12 m12 l12">
+                                <select id ="age">
+                                  <option value="" disabled selected>Age</option>
+                                  <option value="1">0-1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5+</option>
+                                </select>
+                              </div>
+                              <div class="input-field col s12 m12 l12">
+                                <select id ="size">
+                                  <option value="" disabled selected>Size</option>
+                                  <option value="small">Small</option>
+                                  <option value="medium">Medium</option>
+                                  <option value="large">Large</option>
+                                </select>
+                              </div>
+                              <div class="input-field col s12 m12 l12">
+                                <select id ="gender">
+                                  <option value="" disabled selected>Gender</option>
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                </select>
+                              </div>
+<!--                             <div class="form-group">
                                 <p>Breeds:</p>
                                 <p>
                                     <input name="grp1" type="radio" id="pitbull">
@@ -99,7 +108,7 @@
                                     <input name="grp1" type="radio" id="bostonTerrier">
                                     <label for="bostonTerrier">Boston Terrier</label>
                                 </p>
-                            </div>
+                            </div> -->
                             <br>
                             <br>
                             <button type="submit" class="btn center-align" id="runSearch"><i class="material-icons center-align">search</i>Search</button>
@@ -112,12 +121,11 @@
             <div class="col s12 m7">
               <div class="card medium">
                 <div class="card-image">
-                  <img src="http://placehold.it/300x300" alt="Pet">
-                  <span class="card-title">Card Title</span>
+                  <img id="petPhoto" src="assets/images/adopt.jpg" alt="Pet">
+                  <span class="card-title"></span>
                 </div>
                 <div class="card-content">
-                  <p>I am a very simple card. I am good at containing small bits of information.
-                  I am convenient because I require little markup to use effectively.</p>
+                  <p>The search for your perfect pet is just a few clicks away! Simply enter your ideal pet search parameters and start your adoption journey!</p>
                 </div>
                 <div class="card-action">
                   <a class="btn-floating btn-large waves-effect waves-light favorite"><i class="fa fa-heart red" aria-hidden="true"></i></a>
@@ -133,7 +141,7 @@
         <div class="container">
             <div class="row">
                 <div class="col s12">
-                    <small class="white-text">&copy Created by:
+                    <small class="white-text">&copy; Created by:
            <ul id="slide-out" class="side-nav">
             <li>
             <div class="userView">
@@ -281,6 +289,7 @@
             </div>
         </div>
     </div>
+    <script src="../javascript/facebookLogin.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script src="javascript/login.js"></script>
@@ -288,7 +297,7 @@
     <!-- jQuery lib -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
 
-    <!-- transform2d lib -->
+   <!--  transform2d lib -->
     <script type="text/javascript" src="js/jquery.transform2d.js"></script>
 
     <!-- jTinder lib -->
@@ -296,6 +305,7 @@
 
     <!-- jTinder initialization script -->
     <script>$("#tinderslide").jTinder();</script>
+    <script type="text/javascript" src="javascript/mainSearchPage.js"></script>
 </body>
 
 </html>

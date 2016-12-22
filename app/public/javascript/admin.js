@@ -9,7 +9,7 @@ $(document).ready(function(){
 		var breed = $("#breed").val().trim();
 		var color = $("#color").val().trim();
 		var size = $("#size").val();
-		var personality = $("#personality").val().trim();
+		var description = $("#description").val().trim();
 		var location = $("#location").val().trim();
 
 		var newPet = {
@@ -21,7 +21,7 @@ $(document).ready(function(){
 			breed: breed,
 			color: color,
 			size: size,
-			personality : personality,
+			description : description,
 			location: location
 		};
 		//ajax call to create a pet
@@ -32,6 +32,7 @@ $(document).ready(function(){
 	        }).then(function(){
 	        	$("select").find("option").prop("selected", false);
 	        	$("input[type=text], textarea").val("");
+	        	alert("pet added to database");
 	        });
 	});
 
