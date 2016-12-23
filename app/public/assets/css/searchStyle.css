@@ -7,12 +7,25 @@
 	margin-bottom: 0px;
 }
 
-.favorite,
+/*.favorite,
 .arrow{
 	margin-right: 100px;
 	margin-left: 100px;
-}
+}*/
 
 .side-menu{
-	border-right: solid 3px gray;
+	border-right: solid 5px #1B435D;
+	font-color: #1B435D;
 }
+
+/*------------------ modal styling ------------------------------*/
+#modalSection {
+  
+  
+  float: center !important;
+  padding-left: 200px
+}
+/*.modal {
+  height: 50px;
+  width: 50px;
+}*/
