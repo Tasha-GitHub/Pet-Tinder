@@ -38,13 +38,13 @@
     <div class="container-fluid content" id="mainColor">
             <nav class="row">
                 <div class="nav-wrapper s12 m12 l12" id="headerFooter">
+                  <img src="assets/images/orangepaw.png" alt="pawPrint">
                   <a id="fetchLogo" href="#!" >Fetch</a>
                   <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                   <ul class="right hide-on-med-and-down">
                     <li><a class="right-align" href="/favorites">Favorites</a></li>
                     <li><a href="/search">Search Pets</a></li>
-                    <li><a id="log" onclick="openNav()">Login or Sign Up</li>
-                    <!-- <li><a id="log" onclick="openNav()">Sign Up</li> -->  
+                    <li><a id="log" onclick="openNav()">Login or Sign Up</li>  
                   </ul>
                   <ul class="side-nav" id="mobile">
                     <li><a href="/favorites">Favorites</a></li>
@@ -65,7 +65,7 @@
                         <form role="form">
                               <div class="input-field col s12 m12 l12">
                                 <select id="type">
-                                  <option class="blue-text text-darken-2" id="animalType" value="" disabled selected>Animal Type</option>
+                                  <option id="animalType" value="" disabled selected>Animal Type</option>
                                   <option value="cat">Cat</option>
                                   <option value="dog">Dog</option>
                                 </select>
@@ -95,25 +95,7 @@
                                   <option value="female">Female</option>
                                 </select>
                               </div>
-<!--                             <div class="form-group">
-                                <p>Breeds:</p>
-                                <p>
-                                    <input name="grp1" type="radio" id="pitbull">
-                                    <label for="pitbull">Pitbull</label>
-                                </p>
-                                <p>
-                                    <input name="grp1" type="radio" id="labrador">
-                                    <label for="labrador">Labrador</label>
-                                </p>
-                                <p>
-                                    <input name="grp1" type="radio" id="frenchBulldog">
-                                    <label for="frenchBulldog">French Bulldog</label>
-                                </p>
-                                <p>
-                                    <input name="grp1" type="radio" id="bostonTerrier">
-                                    <label for="bostonTerrier">Boston Terrier</label>
-                                </p>
-                            </div> -->
+
                             <br>
                             <br>
                             <button type="submit" class="btn center-align" id="runSearch"><i class="material-icons center-align">search</i>Search</button>
@@ -125,10 +107,10 @@
                 </section>
             </div>
             
-            <div id="modalSection" class="col s12 m7">
+            <div id="modalSection" class="col s12 m7 valign-wrapper">
               <div class="card medium center">
-                <div class="card-image">
-                  <!-- <img id="petPhoto" src="assets/images/adopt.jpg" alt="Pet"> -->
+                <div class="valign card-image">
+                  <img id="petPhoto" src="assets/images/adopt.jpg" alt="Pet">
                   <span class="card-title"></span>
                 </div>
 

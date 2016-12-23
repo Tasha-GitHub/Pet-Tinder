@@ -1,17 +1,21 @@
 
 /* ---------style for pet picture----------- */
-.photo{
+#petPhoto{
+	display: inline;
+	float: center !important;
+	height: 200px;
+	width: 250px;
 	margin-left:0px;
 	margin-right:0px;
 	margin-top: 50px;
 	margin-bottom: 0px;
 }
 
-/*.favorite,
+.favorite,
 .arrow{
-	margin-right: 100px;
-	margin-left: 100px;
-}*/
+	margin-right: 50px;
+	margin-left: 50px;
+}
 
 .side-menu{
 	border-right: solid 5px #1B435D;
@@ -20,12 +24,29 @@
 
 /*------------------ modal styling ------------------------------*/
 #modalSection {
-  
-  
   float: center !important;
-  padding-left: 200px
+  margin-left: 100px;
+
 }
-/*.modal {
-  height: 50px;
-  width: 50px;
-}*/
+#runSearch, #clearAll, #log{
+  background-color: #1B435D;
+}
+#heart {
+  background-color: #C54C82;
+  z-index: 5;
+}
+.logo {
+  width: 100px;
+}
+h4, p {
+  color: #1B435D !important;
+}
+/*------------------ search bar styling -------------------------*/
+/* label color */
+   .input-field {
+     color: #1B435D;
+   }
+
+
+
+

@@ -26,7 +26,7 @@ footer{
 }
 
 #fetchLogo {
-  padding-left: 50px;
+  padding-left: 10px;
   font-family: 'Acme', sans-serif !important;
   font-size: 60px;
   font-color: #FF895D !important;
@@ -35,27 +35,19 @@ footer{
 #headerFooter, #modalColor{
   background-color: #1B435D;
 }
-/*------------------ main page styling------------------------------*/
+
 #mainColor{
-  background-color: #FF895D;
+  background-color: #FFA500;
 }
-#runSearch, #clearAll, #log{
-  background-color: #1B435D;
+
+img {
+  height: 50px;
+  width: 50px;
+  margin-left: 20px;
+  margin-top: 5px;
+  color: #FF895D;
 }
-#heart {
-  background-color: #C54C82;
-  z-index: 5;
-}
-.logo {
-  width: 100px;
-}
-h4 {
-  color: #1B435D;
-}
-/*------------------ drop down search styling -------------------*/
-#Animaltype {
-  
-}
+
 
 
 /*------------------ media queries ------------------------------*/
