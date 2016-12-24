@@ -19,7 +19,7 @@
 
 .side-menu{
 	border-right: solid 5px #1B435D;
-	font-color: #1B435D;
+	color: #1B435D;
 }
 
 /*------------------ modal styling ------------------------------*/
@@ -40,6 +40,9 @@
 }
 h4, p {
   color: #1B435D !important;
+}
+h4 {
+  font-family: 'Acme', sans-serif !important;
 }
 /*------------------ search bar styling -------------------------*/
 /* label color */

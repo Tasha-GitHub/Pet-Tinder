@@ -1,3 +1,15 @@
 .bottomAlign {
 	align-items: flex-end;
 }
+
+.btn {
+	background-color: #1B435D;
+}
+
+#add, #remove {
+	color: #1B435D;
+	font-family: 'Acme', sans-serif !important;
+}
+.input-field {
+     color: #1B435D !important;
+   }
