@@ -14,7 +14,7 @@
 //     });
 //     return Pet;
 // };
-
+var sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
     var Pet = sequelize.define("Pet", {
         id: {
@@ -48,22 +48,36 @@ module.exports = function(sequelize, DataTypes) {
         },
         pet_photo: {
             type: DataTypes.STRING,
+        },
+        pet_description: {
+            type: DataTypes.TEXT,
         }
-
     },{
-        
-        classMethods: {
-            associate: function(models) {
-
-                Pet.belongsToMany(models.User, {
-                    through: 'userfavs',
-                    foreignKey: 'userId',
-                    as: 'petUser'
-                });
-            }
-
+    
+      // We're saying that we want our Author to have Posts
+      classMethods: {
+        associate: function(models) {
+          // Associating Author with Posts
+          Pet.hasMany(models.userfav);
         }
+      }
     });
 
+    //}
+    // , {
+
+    //     classMethods: {
+    //         associate: function(models) {
+    //             Pet.belongsToMany(models.User, {
+    //                 through: 'userfavs',
+    //                 foreignKey: 'userId',
+    //                 as: 'petUser'
+    //             });
+    //         }
+
+    //     }
+    // });
+
     return Pet;
+    
 }
