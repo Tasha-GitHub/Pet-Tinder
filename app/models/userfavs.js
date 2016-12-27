@@ -9,7 +9,11 @@ module.exports = function(sequelize, DataTypes) {
             unique: true
         },
         userId: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            validate :{
+              notEmpty: true,           // don't allow empty strings
+              isNumeric: true          // will only allow numbers
+            }
         }
     },
     {

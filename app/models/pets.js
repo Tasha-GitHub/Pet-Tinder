@@ -1,19 +1,3 @@
-// module.exports = function(sequelize, DataTypes) {
-//     var Pet = sequelize.define("Pet", {
-//         pet_type: DataTypes.STRING,
-//         pet_name: DataTypes.STRING,
-//         pet_age: DataTypes.INTEGER,
-//         pet_breed: DataTypes.STRING,
-//         pet_color: DataTypes.STRING,
-//         pet_size: DataTypes.STRING,
-//         pet_photo: DataTypes.STRING,
-//         pet_location: DataTypes.STRING,
-//         pet_description: DataTypes.STRING,
-//     }, {
-//         timestamps: true
-//     });
-//     return Pet;
-// };
 var sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
     var Pet = sequelize.define("Pet", {
@@ -26,31 +10,68 @@ module.exports = function(sequelize, DataTypes) {
         },
         pet_name: {
             type: DataTypes.STRING,
+            validate :{
+                is: ["^[a-z]+$",'i'],     // will only allow letters
+                notEmpty: true,          // don't allow empty strings
+            }
         },
         pet_age: {
             type: DataTypes.INTEGER,
+            validate :{
+                isNumeric: true,          // will only allow numbers
+                notEmpty: true           // don't allow empty strings
+            }
         },
         pet_breed: {
             type: DataTypes.STRING,
+            validate :{
+                is: ["^[a-z]+$",'i'],     // will only allow letters
+                notEmpty: true           // don't allow empty strings
+            }
         },
         pet_color: {
             type: DataTypes.STRING,
+            validate :{
+                is: ["^[a-z]+$",'i'],     // will only allow letters
+                notEmpty: true           // don't allow empty strings
+            }
 
         },
         pet_type: {
             type: DataTypes.STRING,
+            validate :{
+                is: ["^[a-z]+$",'i'],     // will only allow letters
+                notEmpty: true           // don't allow empty strings
+            }
         },
         pet_gender: {
             type: DataTypes.STRING,
+            validate :{
+                is: ["^[a-z]+$",'i'],     // will only allow letters
+                notEmpty: true           // don't allow empty strings
+            }
         },
         pet_size: {
             type: DataTypes.STRING,
+            validate :{
+                is: ["^[a-z]+$",'i'],     // will only allow letters
+                notEmpty: true           // don't allow empty strings
+            }
         },
         pet_photo: {
             type: DataTypes.STRING,
+            validate :{
+                notEmpty: true,           // don't allow empty strings
+                isUrl: true              // checks for url format (http://foo.com)
+            }
+
         },
         pet_description: {
             type: DataTypes.TEXT,
+            validate :{
+                is: ["^[a-z]+$",'i'],     // will only allow letters
+                notEmpty: true           // don't allow empty strings
+            }
         }
     },{
     
@@ -62,21 +83,6 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     });
-
-    //}
-    // , {
-
-    //     classMethods: {
-    //         associate: function(models) {
-    //             Pet.belongsToMany(models.User, {
-    //                 through: 'userfavs',
-    //                 foreignKey: 'userId',
-    //                 as: 'petUser'
-    //             });
-    //         }
-
-    //     }
-    // });
 
     return Pet;
     
