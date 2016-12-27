@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
         user_name: {
             type: DataTypes.STRING,
             validate: {
-                len: [3,50],              // only allow values with length between X and Y
+                isEmail: true,            // checks for email format (foo@bar.com)
                 notEmpty: true           // don't allow empty strings
 
             }
@@ -18,10 +18,14 @@ module.exports = function(sequelize, DataTypes) {
         user_password: {
             type: DataTypes.STRING,
             validate: {
-                notEmpty: true,           // don't allow empty strings
-                len: [3,50]              // only allow values with length between X and Y
+                notEmpty: true           // don't allow empty strings
                 
             }
+        },
+        admin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+
         }
      });
     return User;

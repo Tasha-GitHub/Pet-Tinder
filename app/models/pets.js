@@ -11,28 +11,25 @@ module.exports = function(sequelize, DataTypes) {
         pet_name: {
             type: DataTypes.STRING,
             validate :{
-                is: ["^[a-z]+$",'i'],     // will only allow letters
                 notEmpty: true,          // don't allow empty strings
             }
         },
         pet_age: {
             type: DataTypes.INTEGER,
             validate :{
-                isNumeric: true,          // will only allow numbers
-                notEmpty: true           // don't allow empty strings
+                notEmpty: true,           // don't allow empty strings
+                isNumeric: true          // will only allow numbers
             }
         },
         pet_breed: {
             type: DataTypes.STRING,
             validate :{
-                is: ["^[a-z]+$",'i'],     // will only allow letters
                 notEmpty: true           // don't allow empty strings
             }
         },
         pet_color: {
             type: DataTypes.STRING,
             validate :{
-                is: ["^[a-z]+$",'i'],     // will only allow letters
                 notEmpty: true           // don't allow empty strings
             }
 
@@ -40,7 +37,6 @@ module.exports = function(sequelize, DataTypes) {
         pet_type: {
             type: DataTypes.STRING,
             validate :{
-                is: ["^[a-z]+$",'i'],     // will only allow letters
                 notEmpty: true           // don't allow empty strings
             }
         },
@@ -54,7 +50,6 @@ module.exports = function(sequelize, DataTypes) {
         pet_size: {
             type: DataTypes.STRING,
             validate :{
-                is: ["^[a-z]+$",'i'],     // will only allow letters
                 notEmpty: true           // don't allow empty strings
             }
         },
@@ -69,7 +64,6 @@ module.exports = function(sequelize, DataTypes) {
         pet_description: {
             type: DataTypes.TEXT,
             validate :{
-                is: ["^[a-z]+$",'i'],     // will only allow letters
                 notEmpty: true           // don't allow empty strings
             }
         }
