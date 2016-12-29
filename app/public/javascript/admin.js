@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	// populate table of pets in database
 	allPetsQuery();
-	
+
 	$("#addPetBtn").on("click", function(e){
 		e.preventDefault();
 		var type = $("#type").val();
@@ -36,6 +36,7 @@ $(document).ready(function(){
 	        	$("select").find("option").prop("selected", false);
 	        	$("input[type=text], textarea").val("");
 	        	alert("pet added to database");
+	        	allPetsQuery();
 	        });
 	});
 
@@ -46,9 +47,11 @@ $(document).ready(function(){
       var currentURL = window.location.origin;
 
       // The AJAX function uses the URL of our API to GET the data associated with it
-      $.ajax({ url: currentURL + "/all", method: "GET" })
+      $.ajax({ url: "http://localhost:3000/all", method: "GET" })
       .done(function(allPets) {
-
+      	// clear table beforehand
+      	$("#petTable").empty();
+      	// add pets from database
       	for (var i = 0; i < allPets.length; i++) {
       		var pet = $("<tr>");
       		var petId = $("<td>" + allPets[i].id + "</td>");
@@ -57,7 +60,10 @@ $(document).ready(function(){
       		pet.append(petName);
       		var petPic = $("<td><img class=\"responsive-img circle\" src='"+allPets[i].pet_photo+"'' alt='"+allPets[i].pet_name+"'></td>");
       		pet.append(petPic);
-      		pet.append("<td><a class=\"waves-effect waves-light btn\"><i class=\"material-icons\">done</i></a></td>");
+      		var petAdopted = $("<td></td>");
+      		var buttonId = $("<a class=\"waves-effect waves-light btn\"><i class=\"material-icons\">done</i></a>").data("data-idNum", allPets[i].id).addClass(".deletePet");
+      		petAdopted.append(buttonId);
+      		pet.append(petAdopted);
       		$("#petTable").append(pet);
       	}
 
@@ -65,9 +71,9 @@ $(document).ready(function(){
   }
 
 	// remove pets from database
-	$("#deletePetBtn").on("click", function(e){
+	$(".deletePet").on("click", function(e){
 		e.preventDefault();
-		var petId = $("#p_id").val().trim();
+		var petId = $(this).data("idNum");
 		var deletePet = {
 			id : petId
 		};
@@ -81,6 +87,7 @@ $(document).ready(function(){
 	        	} else {
 	        		alert("Pet Id not found");
 	        	}
+	        	allPetsQuery();
 	        });
 	});
 
