@@ -36,6 +36,11 @@ $(document).ready(function(){
 	        });
 	});
 
+	// populate table of pets in database
+
+	
+
+	// remove pets from database
 	$("#deletePetBtn").on("click", function(e){
 		e.preventDefault();
 		var petId = $("#p_id").val().trim();

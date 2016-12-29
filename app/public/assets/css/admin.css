@@ -16,3 +16,8 @@
 #background {
 	background-color: #F1ED63;
 }
+
+.scrollable {
+    height: 550px;
+    overflow-y: auto;
+}
