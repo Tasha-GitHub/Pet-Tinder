@@ -1,4 +1,7 @@
 $(document).ready(function(){
+	// populate table of pets in database
+	allPetsQuery();
+	
 	$("#addPetBtn").on("click", function(e){
 		e.preventDefault();
 		var type = $("#type").val();
@@ -37,8 +40,29 @@ $(document).ready(function(){
 	});
 
 	// populate table of pets in database
+	  function allPetsQuery() {
 
-	
+      // Here we get the location of the root page.
+      var currentURL = window.location.origin;
+
+      // The AJAX function uses the URL of our API to GET the data associated with it
+      $.ajax({ url: currentURL + "/all", method: "GET" })
+      .done(function(allPets) {
+
+      	for (var i = 0; i < allPets.length; i++) {
+      		var pet = $("<tr>");
+      		var petId = $("<td>" + allPets[i].id + "</td>");
+      		pet.append(petId);
+      		var petName = $("<td>" + allPets[i].pet_name + "</td>");
+      		pet.append(petName);
+      		var petPic = $("<td><img class=\"responsive-img circle\" src='"+allPets[i].pet_photo+"'' alt='"+allPets[i].pet_name+"'></td>");
+      		pet.append(petPic);
+      		pet.append("<td><a class=\"waves-effect waves-light btn\"><i class=\"material-icons\">done</i></a></td>");
+      		$("#petTable").append(pet);
+      	}
+
+      });
+  }
 
 	// remove pets from database
 	$("#deletePetBtn").on("click", function(e){
