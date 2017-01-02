@@ -82,7 +82,7 @@
                 //reload page
                 location.reload();
             } else{
-                alert("Invalid Password or Email");
+                alertify.error("Invalid Password or Email");
             }
         });
 
@@ -132,9 +132,9 @@
                 passwordSignUpInput1.val("");
                 passwordSignUpInput2.val("");
             } else if (password1 <= 3) {
-                alert("Your password must be four characters or longer.");
+                alertify.error("Your password must be four characters or longer.");
             } else {
-                alert("Your passwords do not match.");
+                alertify.error("Your passwords do not match.");
                 }
         }
 

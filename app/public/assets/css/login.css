@@ -3,11 +3,12 @@
             height: 100px;
             width: 300px;
             position: absolute;
-            margin: auto;
+            margin: 25px;
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
+            background-color: #FFA500;
         }
         
         .buttons .btn {
@@ -47,7 +48,7 @@
             width: 100%;
             position: fixed;
             /* Stay in place */
-            z-index: 1;
+            z-index: 3;
             /* Sit on top */
             left: 0;
             top: 0;
@@ -89,7 +90,7 @@
         
         .overlay a:hover,
         .overlay a:focus {
-            color: #f1f1f1;
+            color: #FFA500;
         }
         /* Position the close button (top right corner) */
         
