@@ -16,7 +16,7 @@ if (JSON.parse(localStorage.getItem("userID"))) {
 	    favoritesQuery();
 	})
 } else {
-  	$("#favorites").html("<h2> Please login to view your favorite pets </h2>");
+  	$("#favorites").html("<h2 class=\"white-text\"> Please login to view your favorite pets </h2>");
 
 }
 
