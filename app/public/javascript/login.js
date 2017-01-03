@@ -34,7 +34,7 @@
              //console.log("Google SignIn success", googleSuccess);
              var name = googleSuccess.name;
              //console.log("googleSuccess", name);
-             var logText = $(".logText");
+             var logText = $("#logText");
              logText.attr("onclick", "signOut()");
              logText.text("Logged in as: " + name);
          })
