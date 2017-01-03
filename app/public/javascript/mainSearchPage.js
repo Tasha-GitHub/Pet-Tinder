@@ -5,7 +5,7 @@ var counter =0;
 var currentPet_id;
 var currentUser_id;
 // Emptied the localStorage
-//localStorage.clear();
+localStorage.clear();
 
 $(document).ready(function() {
    	//runs when a user submits a search
@@ -99,12 +99,12 @@ function petCardCreator(){
 	var petSize = animalList[counter].pet_size;
 	currentPet_id = animalList[counter].id;
 	
-	//var petDesription = animalList[counter].pet_description;
+	var petDesription = animalList[counter].pet_description;
 	    	
 	$(".card-title").html(petName);
 	$("#petPhoto").attr("src", petPhoto);
 	var cardDescription = $("<div>");
-	//cardDescription.html(petDesription);
+	cardDescription.html(petDesription);
 	cardDescription.append("<ul></ul>");
 	cardDescription.find("ul").append("<li> &#9829 Breed: "+ petBreed + "</li>");
 	cardDescription.find("ul").append("<li> &#9829 Age: "+ petAge + "</li>");
@@ -149,6 +149,7 @@ function favoritePet(){
 						pet_id : currentPet_id,
 						user_id : currentUser_id
 					}
+					console.log("hi")
 					console.log(favorite);
 					//adds pet to favorites
 					$.ajax({
