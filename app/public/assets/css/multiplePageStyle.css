@@ -51,7 +51,9 @@ img {
   color:#1B435D;
 }
 
-
+nav .button-collapse {
+  float: right !important;
+}
 
 /*------------------ media queries ------------------------------*/
 
