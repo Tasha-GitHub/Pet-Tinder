@@ -47,6 +47,9 @@ img {
   margin-top: 5px;
   color: #FF895D;
 }
+.dropdown-content li>a, .dropdown-content li>span{
+  color:#1B435D;
+}
 
 nav .button-collapse {
   float: right !important;
