@@ -24,6 +24,13 @@ a {
     height: 550px;
     overflow-y: auto;
 }
+
 .dropdown-content li>a, .dropdown-content li>span{
 	color:#1B435D;
+
+
+.smallPic {
+	width: 50px;
+	height: 50px;
+
 }

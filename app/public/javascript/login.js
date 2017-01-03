@@ -11,6 +11,7 @@
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
 
+        // data from the oatuh signin
         var info = {
             id: profile.getId(),
             fullname: profile.getName(),
@@ -20,6 +21,7 @@
             email: profile.getEmail()
         }
 
+        // id, user_name, user_password, admin, createdAt, createdAt, updatedAt
         $.ajax({
             type: "POST",
             url: "/login",
@@ -109,6 +111,7 @@
                 };
                 var currentURL = window.location.origin;
                 console.log(signUpObject);
+
                 //ajax post to data base to save users email and pass
                 $.ajax({
                     type: "POST",
