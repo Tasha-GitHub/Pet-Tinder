@@ -20,7 +20,9 @@
 	margin-right: 50px;
 	margin-left: 50px;
 }
-
+.card-action {
+	padding: 5px !important;
+}
 .side-menu{
 	border-right: solid 5px #1B435D;
 	color: #1B435D;
@@ -46,6 +48,10 @@
 h4, p, {
   color: #1B435D !important;
   font-family: 'Acme', sans-serif !important;
+}
+p {
+  color: #1B435D !important;
+  font-family: 'Acme', sans-serif !important;	
 }
 h4, #fave, #search {
   font-family: 'Acme', sans-serif !important;
