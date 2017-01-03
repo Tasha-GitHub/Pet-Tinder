@@ -48,38 +48,79 @@ $(document).ready(function() {
 	//next arrow functionality
 	$(".arrow").on("click", function(e){
 		e.preventDefault();
-		console.log(animalList.length);
-		if(counter === 0){
-			alertify.warning("please start your search to view current pets!");
-		}else{
-			if(counter < animalList.length){
-				if(petLoaded){
-					petCardCreator();
-				}	
-			}else{
-				endOfList();
-			}
-		}
-	});
-	//adds favorite
-	$(".favorite").on("click", function(e){
-		e.preventDefault();
-		console.log(counter);
-		console.log(animalList.length);
 		if(petLoaded === false){
 			alertify.warning("please start your search to view current pets!");
 		}else{
 			if(counter < animalList.length){
-				getUserID();
-				favoritePet();
-			    //then load new card
-				petCardCreator();
+				console.log("current counter" + counter);
+				console.log("animal list length"+animalList.length);
+				if (JSON.parse(localStorage.getItem("userID"))) {
+					getUserID();
+			    	//then load new card
+					petCardCreator();
+
+				} else {
+					alertify.warning("please log in to favorite a pet!");
+				}
+				
 					
+			} else if(counter === animalList.length){
+				console.log("current counter" + counter);
+				console.log("animal list length"+animalList.length);
+				if (JSON.parse(localStorage.getItem("userID"))) {
+					getUserID();
+					//load last card
+					endOfList();
+				} else {
+					alertify.warning("please log in to favorite a pet!");
+				}
+				
 			}else{
-				getUserID();
-				favoritePet();
-				//load last card
-				endOfList();
+				console.log("current counter" + counter);
+				console.log("hi")
+				console.log("animal list length"+animalList.length);
+				alertify.warning("Sorry there are no more pets. Please search again.");
+			}
+		}
+
+	});
+	//adds favorite
+	$(".favorite").on("click", function(e){
+		e.preventDefault();
+		if(petLoaded === false){
+			alertify.warning("please start your search to view current pets!");
+		}else{
+			if(counter < animalList.length){
+				console.log("current counter" + counter);
+				console.log("animal list length"+animalList.length);
+				if (JSON.parse(localStorage.getItem("userID"))) {
+					getUserID();
+					favoritePet();
+			    	//then load new card
+			    	petCardCreator();
+
+				} else {
+					alertify.warning("please log in to favorite a pet!");
+				}
+				
+					
+			} else if(counter === animalList.length){
+				console.log("current counter" + counter);
+				console.log("animal list length"+animalList.length);
+				if (JSON.parse(localStorage.getItem("userID"))) {
+					getUserID();
+					favoritePet();
+					//load last card
+					endOfList();
+				} else {
+					alertify.warning("please log in to favorite a pet!");
+				}
+				
+			}else{
+				console.log("current counter" + counter);
+				console.log("hi")
+				console.log("animal list length"+animalList.length);
+				alertify.warning("Sorry there are no more pets. Please search again.");
 			}
 		}
 
@@ -98,6 +139,11 @@ function petCardCreator(){
 	var petGender = animalList[counter].pet_gender;
 	var petSize = animalList[counter].pet_size;
 	currentPet_id = animalList[counter].id;
+	console.log("counter"+counter);
+				console.log("animals loaded"+animalList.length);
+				console.log("pet loaded" +petLoaded);
+				console.log("current pet"+currentPet_id);
+				console.log("current pet id"+currentPet_id);
 	
 	var petDesription = animalList[counter].pet_description;
 	    	
@@ -125,18 +171,14 @@ function endOfList(){
 	var cardDescription = $("<div>");
 	cardDescription.html(petDesription);
 	$(".card-content").html(cardDescription);
-	counter = 0;
+	counter++;
 }
 
 // retrieves usersID from local storage
 function getUserID(){
-	if (JSON.parse(localStorage.getItem("userID"))) {
-
       var storedUserID = JSON.parse(localStorage.getItem("userID"));
-
       // Sets the global current user id variable equal to the stored ID
       currentUser_id = storedUserID;
-  }
 }
 
 function favoritePet(){
@@ -149,7 +191,6 @@ function favoritePet(){
 						pet_id : currentPet_id,
 						user_id : currentUser_id
 					}
-					console.log("hi")
 					console.log(favorite);
 					//adds pet to favorites
 					$.ajax({

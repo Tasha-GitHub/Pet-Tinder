@@ -136,8 +136,8 @@ module.exports = function (app) {
 		var userId = req.body.user_id;
 		var petId = req.body.pet_id;
 		console.log(req.body)
-		console.log(userId);
-		console.log(petId);
+		console.log("userID" + userId);
+		console.log("petID"+petId);
 
 		db.userfav.create({
 		    userId: userId,
