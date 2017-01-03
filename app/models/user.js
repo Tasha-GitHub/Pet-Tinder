@@ -1,13 +1,3 @@
-// module.exports = function(sequelize, DataTypes){
-// 	var User = sequelize.define("User", {
-// 		user_name : DataTypes.STRING,
-// 		user_password: DataTypes.STRING
-// 	}, {
-// 		timestamps: false
-// 	});
-// 	return User;
-// };
-
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
         id: {
@@ -18,26 +8,26 @@ module.exports = function(sequelize, DataTypes) {
             unique: true
         },
         user_name: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            validate: {
+                isEmail: true,            // checks for email format (foo@bar.com)
+                notEmpty: true           // don't allow empty strings
+
+            }
         },
         user_password: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            validate: {
+                notEmpty: true           // don't allow empty strings
+                
+            }
+        },
+        admin: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+
         }
      });
-    //,
-    //     {
-
-    //         classMethods: {
-    //             associate: function(models) {
-
-    //                 User.belongsToMany(models.Pet, {
-    //                     through: 'userfavs',
-    //                     foreignKey: 'petId',
-    //                     as: 'userPet'
-    //                 });
-    //             }
-    //         }
-    //     });
-
     return User;
 }
+
