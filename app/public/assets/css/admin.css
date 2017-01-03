@@ -21,3 +21,8 @@
     height: 550px;
     overflow-y: auto;
 }
+
+.smallPic {
+	width: 50px;
+	height: 50px;
+}
