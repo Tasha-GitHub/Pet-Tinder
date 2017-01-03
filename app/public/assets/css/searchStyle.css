@@ -11,6 +11,10 @@
 	margin-bottom: 0px;
 }
 
+#petInfo {
+	margin: auto;
+}
+
 .favorite,
 .arrow{
 	margin-right: 50px;
@@ -25,11 +29,12 @@
 /*------------------ modal styling ------------------------------*/
 #modalSection {
   float: center !important;
-  margin-left: 100px;
+ /* margin-left: 100px;*/
 
 }
 #runSearch, #clearAll, #log{
   background-color: #1B435D;
+  font-family: 'Acme', sans-serif !important;
 }
 #heart {
   background-color: #C54C82;
@@ -38,18 +43,26 @@
 .logo {
   width: 100px;
 }
-h4, p {
+h4, p, {
   color: #1B435D !important;
+  font-family: 'Acme', sans-serif !important;
 }
-h4 {
+h4, #fave, #search {
   font-family: 'Acme', sans-serif !important;
 }
 /*------------------ search bar styling -------------------------*/
 /* label color */
    .input-field {
      color: #1B435D;
+     font-family: 'Acme', sans-serif !important;
    }
+  /* label underline focus color */
+   /*.input-field input[type=text]:focus {
+     border-bottom: 1px solid #1B435D !important;
+     box-shadow: 0 1px 0 0 #1B435D !important;
+   }
+*/
 
-
-
-
+.dropdown-content li>a, .dropdown-content li>span{
+	color:#1B435D;
+}

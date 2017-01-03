@@ -6,7 +6,7 @@
 	background-color: #1B435D;
 }
 
-#add, #remove {
+#add, #remove, .side-menu {
 	color: #1B435D;
 	font-family: 'Acme', sans-serif !important;
 }
@@ -15,4 +15,9 @@
    }
 #background {
 	background-color: #F1ED63;
+}
+
+.scrollable {
+    height: 550px;
+    overflow-y: auto;
 }
