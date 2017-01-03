@@ -17,10 +17,13 @@ $(document).ready(function() {
 		var size = $("#size").val().trim();
 		var gender = $("#gender").val().trim();
 		
-		//ajax call for given search inputs
+		
+		// Here we get the location of the root page.
+    	var currentURL = window.location.origin;
+    	//ajax call for given search inputs
 		$.ajax({
 	        type: "GET",
-	        url: "/search/"+type+"/"+age+"/"+size+"/"+gender,
+	        url: currentURL+"/search/"+type+"/"+age+"/"+size+"/"+gender,
 	    }).then(function(res){
 	    	animalList=[];
 	    	for(var i =0 ; i< res.length ; i++){
@@ -52,33 +55,16 @@ $(document).ready(function() {
 			alertify.warning("please start your search to view current pets!");
 		}else{
 			if(counter < animalList.length){
-				console.log("current counter" + counter);
-				console.log("animal list length"+animalList.length);
-				if (JSON.parse(localStorage.getItem("userID"))) {
-					getUserID();
-			    	//then load new card
-					petCardCreator();
-
-				} else {
-					alertify.warning("please log in to favorite a pet!");
-				}
-				
+				getUserID();
+			    //then load new card
+				petCardCreator();
 					
 			} else if(counter === animalList.length){
-				console.log("current counter" + counter);
-				console.log("animal list length"+animalList.length);
-				if (JSON.parse(localStorage.getItem("userID"))) {
-					getUserID();
-					//load last card
-					endOfList();
-				} else {
-					alertify.warning("please log in to favorite a pet!");
-				}
+				getUserID();
+				//load last card
+				endOfList();
 				
 			}else{
-				console.log("current counter" + counter);
-				console.log("hi")
-				console.log("animal list length"+animalList.length);
 				alertify.warning("Sorry there are no more pets. Please search again.");
 			}
 		}
@@ -91,8 +77,6 @@ $(document).ready(function() {
 			alertify.warning("please start your search to view current pets!");
 		}else{
 			if(counter < animalList.length){
-				console.log("current counter" + counter);
-				console.log("animal list length"+animalList.length);
 				if (JSON.parse(localStorage.getItem("userID"))) {
 					getUserID();
 					favoritePet();
@@ -105,8 +89,6 @@ $(document).ready(function() {
 				
 					
 			} else if(counter === animalList.length){
-				console.log("current counter" + counter);
-				console.log("animal list length"+animalList.length);
 				if (JSON.parse(localStorage.getItem("userID"))) {
 					getUserID();
 					favoritePet();
@@ -117,17 +99,11 @@ $(document).ready(function() {
 				}
 				
 			}else{
-				console.log("current counter" + counter);
-				console.log("hi")
-				console.log("animal list length"+animalList.length);
 				alertify.warning("Sorry there are no more pets. Please search again.");
 			}
 		}
 
 	});
-
-
-
 });
 
 //function that fills the main content of the site
@@ -139,12 +115,6 @@ function petCardCreator(){
 	var petGender = animalList[counter].pet_gender;
 	var petSize = animalList[counter].pet_size;
 	currentPet_id = animalList[counter].id;
-	console.log("counter"+counter);
-				console.log("animals loaded"+animalList.length);
-				console.log("pet loaded" +petLoaded);
-				console.log("current pet"+currentPet_id);
-				console.log("current pet id"+currentPet_id);
-	
 	var petDesription = animalList[counter].pet_description;
 	    	
 	$(".card-title").html(petName);
@@ -182,24 +152,20 @@ function getUserID(){
 }
 
 function favoritePet(){
-				console.log("counter"+counter);
-				console.log("animals loaded"+animalList.length);
-				console.log("pet loaded" +petLoaded);
-				console.log("current pet"+currentPet_id);
-				console.log("current pet id"+currentPet_id);
-						var favorite = {
-						pet_id : currentPet_id,
-						user_id : currentUser_id
-					}
-					console.log(favorite);
-					//adds pet to favorites
-					$.ajax({
-			            type: "POST",
-			            url: "/add/favorite",
-			            data: favorite
-			        }).then(function(){
-			        	alertify.success("pet added to favorites");
-			        });
+	var favorite = {
+		pet_id : currentPet_id,
+		user_id : currentUser_id
+	}
+	// Here we get the location of the root page.
+    var currentURL = window.location.origin;
+	//adds pet to favorites
+	$.ajax({
+		type: "POST",
+		url: currentURL + "/add/favorite",
+		data: favorite
+	}).then(function(){
+		alertify.success("pet added to favorites");
+	});
 
 }
 
