@@ -39,10 +39,10 @@
   		</nav>
 <!-- Admin Form to Add Pet -->
   		<section class="side-menu row">
-        <form class="col m6">
+        <form class="col s12 m6">
           <h3 id="add" class="center">Add a Pet</h3>
           <div class="row">
-            <div class="input-field col m6">
+            <div class="input-field col s12 m6">
               <select id="type">
                 <option value="" disabled selected >Select</option>
                 <option value="dog">Dog</option>
@@ -50,17 +50,17 @@
               </select>
               <label>Species</label>
             </div>
-            <div class="input-field col m6">
+            <div class="input-field col s12 m6">
               <input id="name" type="text" class="validate">
               <label for="name">Name</label>
             </div>
           </div>
           <div class="row">
-            <div class="input-field col m6">
+            <div class="input-field col s12 m6">
               <input id="photo" type="text" class="validate">
               <label for="photo">Photo URL</label>
             </div>
-            <div class="input-field col m6">
+            <div class="input-field col s12 m6">
               <select id="age">
                 <option value="" disabled selected >Select</option>
                 <option value="1">0-1 Years</option>
@@ -73,7 +73,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="input-field col m6">
+            <div class="input-field col s12 m6">
               <select id="gender">
                 <option value="" disabled selected >Select</option>
                 <option value="male">Male</option>
@@ -81,17 +81,17 @@
               </select>
               <label>Sex</label>
             </div>
-            <div class="input-field col m6">
+            <div class="input-field col s12 m6">
               <input id="breed" type="text" class="validate">
               <label for="breed">Breed</label>
             </div>
           </div>
           <div class="row">
-            <div class="input-field col m6">
+            <div class="input-field col s12 m6">
               <input id="color" type="text" class="validate">
               <label for="color">Color</label>
             </div>
-            <div class="input-field col m6">
+            <div class="input-field col s12 m6">
               <select id="size">
                 <option value="" disabled selected>Select</option>
                 <option value="extra small">Extra Small</option>
@@ -104,11 +104,11 @@
             </div>
           </div>
           <div class="row">
-            <div class="input-field col m6">
+            <div class="input-field col s12 m6">
               <input id="description" type="text" class="validate">
               <label for="description">Pet Description</label>
             </div>
-            <div class="input-field col m6">
+            <div class="input-field col s12 m6">
               <input id="location" type="text" class="validate">
               <label for="location">City, State, County</label>
             </div>
@@ -125,9 +125,9 @@
 
 
 <!-- Admin Form to Remove a Pet -->
-        <div class="col m6">
+        <div class="col s12 m6">
         <h3 id="remove" class="center">Remove a Pet</h3>
-          <div class="row">
+<!--           <div class="row">
             <form class="col m12 bottomAlign">
               <div class="input-field col m4 offset-m2">
                 <input id="p_id" type="text" class="validate">
@@ -137,21 +137,24 @@
                 
               </div>
             </form>
-          </div>
-          <table class="highlight">
+          </div> -->
+          <div class="scrollable">
+            <table class="highlight">
             <thead>
               <tr>
                   <th data-field="id">Pet ID</th>
                   <th data-field="name">Name</th>
                   <th data-field="pic">Pic</th>
+                  <th>Adopted!</th>
               </tr>
             </thead>
             
-            <tbody>
+            <tbody id="petTable">
               <tr>
                 <td>1337</td>
                 <td>Randal</td>
                 <td><img class="responsive-img circle" src="./assets/images/randal.JPG" alt="Randal"></td>
+                <td><a class="waves-effect waves-light btn"><i class="material-icons">done</i></a></td>
               </tr>
               <tr>
                 <td>9001</td>
@@ -165,10 +168,11 @@
               </tr>
             </tbody>
           </table>
-          <br><br>
-          <button class="btn waves-effect col m4 offset-m2" type="submit" name="action" id ="deletePetBtn">Submit
+          </div>
+          <!-- <br><br> -->
+        <!--   <button class="btn waves-effect col m4 offset-m2" type="submit" name="action" id ="deletePetBtn">Submit
                   <i class="material-icons right">send</i>
-          </button>
+          </button> -->
         </div>
   		</section>
 	</div>

@@ -48,7 +48,9 @@ img {
   color: #FF895D;
 }
 
-
+nav .button-collapse {
+  float: right !important;
+}
 
 /*------------------ media queries ------------------------------*/
 

@@ -11,6 +11,10 @@
 	margin-bottom: 0px;
 }
 
+#petInfo {
+	margin: auto;
+}
+
 .favorite,
 .arrow{
 	margin-right: 50px;
@@ -25,7 +29,7 @@
 /*------------------ modal styling ------------------------------*/
 #modalSection {
   float: center !important;
-  margin-left: 100px;
+ /* margin-left: 100px;*/
 
 }
 #runSearch, #clearAll, #log{

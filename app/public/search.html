@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 
 <head>
@@ -39,7 +39,7 @@
             <nav class="row">
                 <div class="nav-wrapper s12 m12 l12" id="headerFooter">
                   <img src="assets/images/orangepaw.png" alt="pawPrint">
-                  <a id="fetchLogo" href="#!" >Fetch</a>
+                  <a id="fetchLogo" href="#!">Fetch</a>
                   <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                   <ul class="right hide-on-med-and-down">
                     <li><a class="right-align" href="/favorites">Favorites</a></li>
@@ -56,7 +56,7 @@
                 </div>
             </nav>
         <div class="row">
-            <div class="col s12 m12 l3 side-menu">
+            <div class="col s12 m3 side-menu">
                 <section class="panel panel-primary">
                     <div class="panel-heading">
                         <h4 class="panel-title">Find your perfect pet</h4>
@@ -98,18 +98,18 @@
 
                             <br>
                             <br>
-                            <button type="submit" class="btn center-align" id="runSearch"><i class="material-icons center-align">search</i>Search</button>
+                            <button type="submit" class="btn center-align col s5" id="runSearch"><i class="material-icons center-align">search</i>Search</button>
                             <br>
                             <br>
-                            <button type="button" class="btn center-align" id="clearAll"><i class="material-icons center-align">delete</i>Clear Search</button>
+                            <button type="button" class="btn center-align col s5 offset-s1" id="clearAll"><i class="material-icons center-align">delete</i>Clear</button>
                         </form>
                     </div>
                 </section>
                 
             </div>
             
-            <div id="modalSection" class="col s12 m7 valign-wrapper">
-              <div class="card medium center">
+            <div id="modalSection" class="col s12 m9 valign-wrapper">
+              <div id="petInfo" class="card medium center col s12 m9">
                 <div class="valign card-image">
                   <img id="petPhoto" src="assets/images/adopt.jpg" alt="Pet">
                   <span class="card-title"></span>
@@ -182,7 +182,24 @@
             <li><a href="https://www.linkedin.com/in/raneshweta?trk=hp-identity-photo" class="waves-effect" target="_blank">Linkedin <img src="assets/images/linkedin.png"></a></li>
             <li><a class="waves-effect" href="https://twitter.com/ShwtaR" target="_blank">Twitter<img src="assets/images/twitter.png"></a></li>
           </ul>
-          <a href="#" data-activates="slide-outm" class="button-collapse tooltipped" data-position="top" data-delay="50" data-tooltip="Shweta's Social Networks.">Shweta</a>
+          <a href="#" data-activates="slide-outm" class="button-collapse tooltipped" data-position="top" data-delay="50" data-tooltip="Shweta's Social Networks.">Shweta</a>,
+
+          <ul id="slide-outa" class="side-nav">
+            <li>
+            <div class="userView">
+              <div class="background">
+                <img class="responsive-img" src="assets/images/pets.jpeg">
+              </div>
+              <a href="#!user"><img class="circle" alt="Jess Rhodes" src="assets/images/jess.png"></a>
+              <a href="#!name"><span class="white-text name">Jess Rhodes</span></a>
+              <a href="#!email"><span class="white-text email">jess.rhodes.87@gmail.com</span></a>
+            </div>
+            </li>
+            <li><a href="https://github.com/JessieRhodes" class="waves-effect" target="_blank">Github <img src="assets/images/git.png"></a></li>
+            <li><a href="https://www.linkedin.com/in/jessie-rhodes-45100391" class="waves-effect" target="_blank">Linkedin <img src="assets/images/linkedin.png"></a></li>
+            <li><a class="waves-effect" href="https://twitter.com/jessienyasha" target="_blank">Twitter <img src="assets/images/twitter.png"></a></li>
+          </ul>
+          <a href="#" data-activates="slide-outa" class="button-collapse tooltipped" data-position="top" data-delay="50" data-tooltip="Randal's Social Networks.">Jess</a> 
 
            and            
 
@@ -195,17 +212,17 @@
               <a href="#!user"><img class="circle" alt="Randal Rowland" src="assets/images/randal.JPG"></a>
               <a href="#!name"><span class="white-text name">Randal Rowland</span></a>
               <a href="#!email"><span class="white-text email">r.rowland93@gmail.com</span></a>
-            </div>
             </li>
             <li><a href="https://www.github.com/RJRowland93" class="waves-effect" target="_blank">Github <img src="assets/images/git.png"></a></li>
             <li><a href="https://www.linkedin.com/in/randal-rowland-186523124" class="waves-effect" target="_blank">Linkedin <img src="assets/images/linkedin.png"></a></li>
             <li><a class="waves-effect" href="https://twitter.com/rjrowland" target="_blank">Twitter <img src="assets/images/twitter.png"></a></li>
           </ul>
           <a href="#" data-activates="slide-outr" class="button-collapse tooltipped" data-position="top" data-delay="50" data-tooltip="Randal's Social Networks.">Randal</a> 2016</small>
-                </div>
-            </div>
+          </div> 
         </div>
-    </footer>
+      </div>
+    </div>
+  </footer>
     <!-- Modals for Login and Sign Up -->
     <div id="loginModal" class="modal">
         <div class="modal-content">

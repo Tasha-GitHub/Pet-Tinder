@@ -101,6 +101,14 @@ module.exports = function (app) {
 		});
 	});
 
+	app.get("/all", function(req, res){
+		db.Pet.findAll({})
+        .then(function(result) {
+           return res.json(result);
+        });
+
+	});
+
 	app.get("/search/:type?/:age?/:size?/:gender?", function(req, res){
 		var type = req.params.type;
 		var age= req.params.age;

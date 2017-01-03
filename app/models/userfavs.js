@@ -1,6 +1,7 @@
 
 module.exports = function(sequelize, DataTypes) {
     var userfav = sequelize.define("userfav", {
+
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
