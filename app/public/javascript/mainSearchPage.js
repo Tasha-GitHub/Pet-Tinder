@@ -8,16 +8,20 @@ var currentUser_id;
 //localStorage.clear();
 
 $(document).ready(function() {
-	counter = 0;
+	
    	//runs when a user submits a search
 	$("#runSearch").on("click", function(e){
 		e.preventDefault();
+		counter = 0;
 		//variabels for searchObj object
 		var type = $("#type").val().trim();
 		console.log(type);
 		var age = $("#age").val().trim();
+		console.log(age);
 		var size = $("#size").val().trim();
+		console.log(size);
 		var gender = $("#gender").val().trim();
+		console.log(gender);
 		
 		
 		// Here we get the location of the root page.
