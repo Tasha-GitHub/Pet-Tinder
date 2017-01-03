@@ -50,7 +50,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		console.log(animalList.length);
 		if(counter === 0){
-			alert("please start your search to view current pets!");
+			alertify.warning("please start your search to view current pets!");
 		}else{
 			if(counter < animalList.length){
 				if(petLoaded){
@@ -67,7 +67,7 @@ $(document).ready(function() {
 		console.log(counter);
 		console.log(animalList.length);
 		if(petLoaded === false){
-			alert("please start your search to view current pets!");
+			alertify.warning("please start your search to view current pets!");
 		}else{
 			if(counter < animalList.length){
 				getUserID();
@@ -156,7 +156,7 @@ function favoritePet(){
 			            url: "/add/favorite",
 			            data: favorite
 			        }).then(function(){
-			        	alert("pet added to favorites");
+			        	alertify.success("pet added to favorites");
 			        });
 
 }

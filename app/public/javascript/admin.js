@@ -48,9 +48,9 @@ $(document).ready(function(){
 	            data: deletePet
 	        }).then(function(data){
 	        	if(data){
-	        		alert("pet deleted");
+	        		alertify.success("pet deleted");
 	        	} else {
-	        		alert("Pet Id not found");
+	        		alertify.error("Pet Id not found");
 	        	}
 	        });
 	});
