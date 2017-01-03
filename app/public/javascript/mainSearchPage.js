@@ -8,11 +8,13 @@ var currentUser_id;
 //localStorage.clear();
 
 $(document).ready(function() {
+	counter = 0;
    	//runs when a user submits a search
 	$("#runSearch").on("click", function(e){
 		e.preventDefault();
 		//variabels for searchObj object
 		var type = $("#type").val().trim();
+		console.log(type);
 		var age = $("#age").val().trim();
 		var size = $("#size").val().trim();
 		var gender = $("#gender").val().trim();
