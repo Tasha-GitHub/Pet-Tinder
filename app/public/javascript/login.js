@@ -1,17 +1,9 @@
 function onSignIn(googleUser) {
     // Useful data for your client-side scripts:
     var profile = googleUser.getBasicProfile();
-    //console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-    //console.log('Full Name: ' + profile.getName());
-    //console.log('Given Name: ' + profile.getGivenName());
-    //console.log('Family Name: ' + profile.getFamilyName());
-    //console.log("Image URL: " + profile.getImageUrl());
-    //console.log("Email: " + profile.getEmail());
-
-    // The ID token you need to pass to your backend:
     var id_token = googleUser.getAuthResponse().id_token;
 
-    // data from the oatuh signin
+    // data from the oAuth signin
     var info = {
         id: profile.getId(),
         fullname: profile.getName(),
@@ -22,8 +14,7 @@ function onSignIn(googleUser) {
         password: profile.getId()
     }
 
-    // id, user_name, user_password, admin, createdAt, createdAt, updatedAt
-
+    // perform Ajax call to the login path on google signin
     $.ajax({
             url: '/login',
             type: 'POST',
@@ -31,12 +22,16 @@ function onSignIn(googleUser) {
 
         })
         .done(function (googleSuccess) {
-            console.log("Google SignIn success", googleSuccess);
+            //console.log("Google SignIn success", googleSuccess);
 
             var name = googleSuccess.name;
+            
+            // update DOM with current user login status and change this DOM element to perform a signout function
             var logText = $("#logText");
             logText.attr("onclick", "signOut()");
             logText.text("Logged in as: " + name);
+            
+            // close the overlay
             closeNav();
 
             // Emptied the localStorage
@@ -54,7 +49,7 @@ $(document).ready(function () {
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
     $('.modal').modal();
 
-    // locators
+    // locators for jQuery ease
 
     // input fields
     var emailLoginInput = $("#emailLogin");
@@ -76,6 +71,8 @@ $(document).ready(function () {
     signUpButton.on("click", signUpClick);
 
     // clicklistener functions
+
+    // function to perform when the login button is clicked
     function loginClick(e) {
         e.preventDefault();
 
@@ -110,13 +107,10 @@ $(document).ready(function () {
                         alertify.error("Invalid Password or Email");
                     }
                 });
-
         }
-
-
-
     }
 
+    // function to perform with the sign up button is clicked
     function signUpClick(e) {
         var password1 = passwordSignUpInput1.val().trim();
         var password2 = passwordSignUpInput2.val().trim();
