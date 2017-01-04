@@ -30,8 +30,7 @@
 
 /*------------------ modal styling ------------------------------*/
 #modalSection {
-  float: center !important;
- /* margin-left: 100px;*/
+  margin-top: 10px;
 
 }
 #runSearch, #clearAll, #log{
