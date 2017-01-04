@@ -3,29 +3,30 @@ var nightmare = Nightmare({ show: true })
 
 nightmare
     .viewport(1080, 1200)
-    .goto('https://polar-spire-88666.herokuapp.com/')
+    // .goto('https://limitless-peak-20865.herokuapp.com')
+    .goto('http://localhost:3000/')
     .click('#slide-outm')
     .click('#signUpModalButton')
-    .type('input[id="nameSignUpInput"]', 'Shweta Rane')
+    .type('input[id="nameSignUpInput"]', 'Bob')
     .wait(20)
     .type('input[id="phoneSignUpInput"]', '5125125122')
     .wait(20)
-    .type('input[id="emailSignUpInput"]', 's@gmail.com')
+    .type('input[id="emailSignUpInput"]', 'bob@gmail.com')
     .wait(20)
     .type('input[id="passwordSignUpInput1"]', 'abcd')
     .wait(20)
     .type('input[id="passwordSignUpInput2"]', 'abcd')
     .wait(20)
     .click('#signUpButton')
-    .wait(20)
-    .click('.closebtn')
-
-
- 
- .evaluate(function () {
-    return document.querySelector('#signUpButton').href
-  })
-.end()
+    .wait(30)
+    .goto('http://localhost:3000/')
+    .wait(50)
+    // .goto('https://infinite-hamlet-92979.herokuapp.com')
+    // .goto('https://infinite-hamlet-92979.herokuapp.com/favoristes')
+    .evaluate(function() {
+        return document.querySelector('#signUpButton').href
+    })
+    .end()
     .then(function(result) {
         console.log(result)
     })
