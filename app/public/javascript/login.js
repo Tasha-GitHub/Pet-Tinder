@@ -44,6 +44,7 @@ function onSignIn(googleUser) {
             // Store all content into localStorage
             localStorage.setItem("userID", googleSuccess.result);
             localStorage.setItem("userName", googleSuccess.name);
+            localStorage.setItem("admin", googleSuccess.admin);
         })
         .fail(function (failedObject) {
             console.log("Google SignIn error", failedObject);

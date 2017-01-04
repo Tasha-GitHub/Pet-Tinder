@@ -1,4 +1,8 @@
 $(document).ready(function () {
+
+	if (JSON.parse(localStorage.getItem("admin")) === false) {
+		$(".mainContent").html("<div class=\"warningMessage\"><h3>"+"Sorry but you are not an admin and do not have permission to view this information"+"</h3></div>")
+	}	
 	// populate table of pets in database
 	allPetsQuery();
 

@@ -32,142 +32,144 @@
 		      </ul>
 		    </div>
   		</nav>
-<!-- Admin Form to Add Pet -->
-  		<section class="side-menu row">
-        <form class="col s12 m6">
-          <h3 id="add" class="center">Add a Pet</h3>
-          <div class="row">
-            <div class="input-field col s12 m6">
-              <select id="type">
-                <option value="" disabled selected >Select</option>
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-              </select>
-              <label>Species</label>
-            </div>
-            <div class="input-field col s12 m6">
-              <input id="name" type="text" class="validate">
-              <label for="name">Name</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12 m6">
-              <input id="photo" type="text" class="validate">
-              <label for="photo">Photo URL</label>
-            </div>
-            <div class="input-field col s12 m6">
-              <select id="age">
-                <option value="" disabled selected >Select</option>
-                <option value="1">0-1 Years</option>
-                <option value="2">2 Years</option>
-                <option value="3">3 Years</option>
-                <option value="4">4 Years</option>
-                <option value="5">5+ Years</option>
-              </select>
-              <label>Age</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12 m6">
-              <select id="gender">
-                <option value="" disabled selected >Select</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-              <label>Sex</label>
-            </div>
-            <div class="input-field col s12 m6">
-              <input id="breed" type="text" class="validate">
-              <label for="breed">Breed</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12 m6">
-              <input id="color" type="text" class="validate">
-              <label for="color">Color</label>
-            </div>
-            <div class="input-field col s12 m6">
-              <select id="size">
-                <option value="" disabled selected>Select</option>
-                <option value="small">Small</option>
-                <option value="medium">Medium</option>
-                <option value="large">Large</option>
-              </select>
-              <label>Size</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12 m6">
-              <input id="description" type="text" class="validate">
-              <label for="description">Pet Description</label>
-            </div>
-            <div class="input-field col s12 m6">
-              <input id="location" type="text" class="validate">
-              <label for="location">City, State, County</label>
-            </div>
-          </div>
-
-          <!-- submit button -->
-          <div class="row center">
-            <button class="btn waves-effect" type="submit" name="action" id="addPetBtn">Submit
-              <i class="material-icons right">send</i>
-            </button>
-          </div>
-
-        </form>
-
-
-<!-- Admin Form to Remove a Pet -->
-        <div class="col s12 m6">
-        <h3 id="remove" class="center">Remove a Pet</h3>
-          <div class="row">
-            <form class="valign-wrapper">
+      <div class="mainContent">
+  <!-- Admin Form to Add Pet -->
+    		<section class="side-menu row">
+          <form class="col s12 m6">
+            <h3 id="add" class="center">Add a Pet</h3>
+            <div class="row">
               <div class="input-field col s12 m6">
-                <input id="deletePetName" type="text" class="validate">
-                <label for="deletePetName">Pet Name</label>
+                <select id="type">
+                  <option value="" disabled selected >Select</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                </select>
+                <label>Species</label>
               </div>
-              <div class="valign col s6 m6">
-                <button class="btn waves-effect" type="submit" name="action" id ="deletePetBtn">Submit
-                  <i class="material-icons right">send</i>
-                </button>
+              <div class="input-field col s12 m6">
+                <input id="name" type="text" class="validate">
+                <label for="name">Name</label>
               </div>
-            </form>
+            </div>
+            <div class="row">
+              <div class="input-field col s12 m6">
+                <input id="photo" type="text" class="validate">
+                <label for="photo">Photo URL</label>
+              </div>
+              <div class="input-field col s12 m6">
+                <select id="age">
+                  <option value="" disabled selected >Select</option>
+                  <option value="1">0-1 Years</option>
+                  <option value="2">2 Years</option>
+                  <option value="3">3 Years</option>
+                  <option value="4">4 Years</option>
+                  <option value="5">5+ Years</option>
+                </select>
+                <label>Age</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12 m6">
+                <select id="gender">
+                  <option value="" disabled selected >Select</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+                <label>Sex</label>
+              </div>
+              <div class="input-field col s12 m6">
+                <input id="breed" type="text" class="validate">
+                <label for="breed">Breed</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12 m6">
+                <input id="color" type="text" class="validate">
+                <label for="color">Color</label>
+              </div>
+              <div class="input-field col s12 m6">
+                <select id="size">
+                  <option value="" disabled selected>Select</option>
+                  <option value="small">Small</option>
+                  <option value="medium">Medium</option>
+                  <option value="large">Large</option>
+                </select>
+                <label>Size</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12 m6">
+                <input id="description" type="text" class="validate">
+                <label for="description">Pet Description</label>
+              </div>
+              <div class="input-field col s12 m6">
+                <input id="location" type="text" class="validate">
+                <label for="location">City, State, County</label>
+              </div>
+            </div>
+
+            <!-- submit button -->
+            <div class="row center">
+              <button class="btn waves-effect" type="submit" name="action" id="addPetBtn">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+
+          </form>
+
+
+  <!-- Admin Form to Remove a Pet -->
+          <div class="col s12 m6">
+          <h3 id="remove" class="center">Remove a Pet</h3>
+            <div class="row">
+              <form class="valign-wrapper">
+                <div class="input-field col s12 m6">
+                  <input id="deletePetName" type="text" class="validate">
+                  <label for="deletePetName">Pet Name</label>
+                </div>
+                <div class="valign col s6 m6">
+                  <button class="btn waves-effect" type="submit" name="action" id ="deletePetBtn">Submit
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="scrollable">
+              <table class="highlight">
+              <thead>
+                <tr>
+                    <th data-field="id">Pet ID</th>
+                    <th data-field="name">Name</th>
+                    <th data-field="pic">Pic</th>
+                    <th>Adopted!</th>
+                </tr>
+              </thead>
+              
+              <tbody id="petTable">
+                <tr>
+                  <td>1337</td>
+                  <td>Randal</td>
+                  <td><img class="responsive-img circle" src="./assets/images/randal.JPG" alt="Randal"></td>
+                  <td><a class="waves-effect waves-light btn"><i class="material-icons">done</i></a></td>
+                </tr>
+                <tr>
+                  <td>9001</td>
+                  <td>Jesse</td>
+                  <td><img class="responsive-img circle" src="./assets/images/jesse.jpg" alt=""></td>
+                </tr>
+                <tr>
+                  <td>123</td>
+                  <td>Tasha</td>
+                  <td><img class="responsive-img circle" src="./assets/images/tasha.jpg" alt="Tasha"></td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            <!-- <br><br> -->
           </div>
-          <div class="scrollable">
-            <table class="highlight">
-            <thead>
-              <tr>
-                  <th data-field="id">Pet ID</th>
-                  <th data-field="name">Name</th>
-                  <th data-field="pic">Pic</th>
-                  <th>Adopted!</th>
-              </tr>
-            </thead>
-            
-            <tbody id="petTable">
-              <tr>
-                <td>1337</td>
-                <td>Randal</td>
-                <td><img class="responsive-img circle" src="./assets/images/randal.JPG" alt="Randal"></td>
-                <td><a class="waves-effect waves-light btn"><i class="material-icons">done</i></a></td>
-              </tr>
-              <tr>
-                <td>9001</td>
-                <td>Jesse</td>
-                <td><img class="responsive-img circle" src="./assets/images/jesse.jpg" alt=""></td>
-              </tr>
-              <tr>
-                <td>123</td>
-                <td>Tasha</td>
-                <td><img class="responsive-img circle" src="./assets/images/tasha.jpg" alt="Tasha"></td>
-              </tr>
-            </tbody>
-          </table>
-          </div>
-          <!-- <br><br> -->
-        </div>
-  		</section>
-	</div>
+    		</section>
+  	</div>
+  </div>
 <!-- footer -->
 	<footer id="headerFooter" class="page-footer center">
 		<div class="container">
