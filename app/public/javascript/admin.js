@@ -68,7 +68,7 @@ $(document).ready(function(){
       		var petPic = $("<td><img class=\"responsive-img circle smallPic\" src='"+allPets[i].pet_photo+"'' alt='"+allPets[i].pet_name+"'></td>");
       		pet.append(petPic);
       		var petAdopted = $("<td></td>");
-      		var buttonId = $("<a class=\"waves-effect waves-light btn\"><i class=\"material-icons\">done</i></a>").data("data-idNum", allPets[i].id).addClass("deletePet");
+      		var buttonId = $("<a class=\"waves-effect waves-light btn\" data=\"" + allPets[i].id + "\"><i class=\"material-icons\">done</i></a>").data("data-idNum", allPets[i].id).addClass("deletePet");
       		petAdopted.append(buttonId);
       		pet.append(petAdopted);
       		$("#petTable").append(pet);
@@ -97,7 +97,7 @@ $(document).ready(function(){
       		var petPic = $("<td><img class=\"responsive-img circle smallPic\" src='"+petName[i].pet_photo+"'' alt='"+petName[i].pet_name+"'></td>");
       		pet.append(petPic);
       		var petAdopted = $("<td></td>");
-      		var buttonId = $("<a class=\"waves-effect waves-light btn\"><i class=\"material-icons\">done</i></a>").data("data-idNum", petName[i].id).addClass("deletePet");
+      		var buttonId = $("<a class=\"waves-effect waves-light btn\" data=\"" + petName[i].id + "\"><i class=\"material-icons\">done</i></a>").data("data-idNum", petName[i].id).addClass("deletePet");
       		petAdopted.append(buttonId);
       		pet.append(petAdopted);
       		$("#petTable").append(pet);
@@ -110,9 +110,9 @@ $(document).ready(function(){
 	// remove pets from database
 	$("#petTable").on("click", ".deletePet", function(e){
 		e.preventDefault();
-		var petId = $(this).data("idNum");
+		var petId = $(this).data();
 		var deletePet = {
-			id : petId
+			id : petId.dataIdNum
 		};
 		$.ajax({
 	            type: "delete",
