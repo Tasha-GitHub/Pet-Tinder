@@ -82,7 +82,7 @@ if (JSON.parse(localStorage.getItem("userID"))) {
           // add the pet image to the saved pet card
           var savedImage = $("<div>");
           savedImage.addClass("card-image");
-          savedImage.append("<img class='responsive-img' src='" + favorites[i].Pet.pet_photo + "'>");
+          savedImage.append("<img class='faveImage responsive-img' src='" + favorites[i].Pet.pet_photo + "'>");
           savedImage.append("<span class='card-title'>" + favorites[i].Pet.pet_name + "</span>") 
           card.append(savedImage);
 
