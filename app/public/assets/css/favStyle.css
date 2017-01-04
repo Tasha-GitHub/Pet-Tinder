@@ -26,6 +26,7 @@ p {
 	background-color: #1B435D !important;
 	padding-right: 10px;
 }
-a {
+a, .white-text {
 	font-family: 'Acme', sans-serif !important;
 }
+
