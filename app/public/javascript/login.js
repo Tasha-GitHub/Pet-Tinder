@@ -25,12 +25,12 @@ function onSignIn(googleUser) {
             //console.log("Google SignIn success", googleSuccess);
 
             var name = googleSuccess.name;
-            
+
             // update DOM with current user login status and change this DOM element to perform a signout function
             var logText = $("#logText");
             logText.attr("onclick", "signOut()");
             logText.text("Logged in as: " + name);
-            
+
             // close the overlay
             closeNav();
 
@@ -115,50 +115,55 @@ $(document).ready(function () {
         var password1 = passwordSignUpInput1.val().trim();
         var password2 = passwordSignUpInput2.val().trim();
 
-        if (password1 === password2 && password1.length > 3) {
-            e.preventDefault();
-            var password = password1;
-            var name = nameSignUpInput.val().trim();
-            var email = emailSignUpInput.val().trim();
-            var phone = phoneSignUpInput.val().trim();
-            var password1 = passwordSignUpInput1.val().trim();
-            var password2 = passwordSignUpInput2.val().trim();
+        var email = emailSignUpInput.val().trim();
+        console.log(email);
+        if (validateEmail(email)) {
 
-            var signUpObject = {
-                name: name,
-                email: email,
-                phone: phone,
-                password: password
-            };
-            var currentURL = window.location.origin;
-            //console.log(signUpObject);
+            if (password1 === password2 && password1.length > 3) {
+                e.preventDefault();
+                var password = password1;
+                var name = nameSignUpInput.val().trim();
+                var email = emailSignUpInput.val().trim();
+                var phone = phoneSignUpInput.val().trim();
+                var password1 = passwordSignUpInput1.val().trim();
+                var password2 = passwordSignUpInput2.val().trim();
 
-            //ajax post to data base to save users email and pass
-            $.ajax({
-                    type: "POST",
-                    url: currentURL + "/create",
-                    data: signUpObject
-                })
-                .done(function (data) {
-                    if (data) {
-                        // Emptied the localStorage
-                        localStorage.clear();
-                        // Store all content into localStorage
-                        localStorage.setItem("userID", data.result);
-                        //reload page
-                        location.reload();
-                    }
-                });
+                var signUpObject = {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    password: password
+                };
+                var currentURL = window.location.origin;
+                //console.log(signUpObject);
 
-            nameSignUpInput.val("");
-            emailSignUpInput.val("");
-            phoneSignUpInput.val("");
-            passwordSignUpInput1.val("");
-            passwordSignUpInput2.val("");
-        } else if (password1 <= 3) {
-            alertify.error("Your password must be four characters or longer.");
-        } else {
-            alertify.error("Your passwords do not match.");
+                //ajax post to database to save users email and pass
+                $.ajax({
+                        type: "POST",
+                        url: currentURL + "/create",
+                        data: signUpObject
+                    })
+                    .done(function (data) {
+                        if (data) {
+                            // Emptied the localStorage
+                            localStorage.clear();
+                            // Store all content into localStorage
+                            localStorage.setItem("userID", data.result);
+                            //reload page
+                            location.reload();
+                        }
+                    });
+
+                nameSignUpInput.val("");
+                emailSignUpInput.val("");
+                phoneSignUpInput.val("");
+                passwordSignUpInput1.val("");
+                passwordSignUpInput2.val("");
+            } else if (password1.length <= 3) {
+                alertify.error("Your password must be four characters or longer.");
+            } else {
+                alertify.error("Your passwords do not match.");
+            }
         }
     }
 
@@ -185,4 +190,14 @@ function signOut() {
         logText.attr("onclick", "openNav()");
         logText.text("Login or Sign Up");
     });
+}
+
+// this function will validate an email. taken from http://www.w3resource.com/javascript/form/email-validation.php
+function validateEmail(email) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+        return (true);
+    } else {
+        alertify.error("You have entered an invalid email address!");
+        return (false);
+    }
 }
