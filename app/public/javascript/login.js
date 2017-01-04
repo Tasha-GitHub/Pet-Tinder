@@ -32,11 +32,9 @@
          })
          .done(function (googleSuccess) {
              //console.log("Google SignIn success", googleSuccess);
-             var name = googleSuccess.name;
-             //console.log("googleSuccess", name);
              var logText = $("#logText");
              logText.attr("onclick", "signOut()");
-             logText.text("Logged in as: " + name);
+             logText.text("Sign Out");
          })
          .fail(function (failedObject) {
              console.log("Google SignIn error", failedObject.responseText);
@@ -172,4 +170,11 @@
  // this function will signout the current user
  function signOut() {
      alertify.error("This function will signout the current user.");
+     var auth2 = gapi.auth2.getAuthInstance();
+     auth2.signOut().then(function () {
+         alertify.success('Signed out.');
+         var logText = $("#logText");
+         logText.attr("onclick", "openNav()");
+         logText.text("Login or Sign Up");
+     });
  }
