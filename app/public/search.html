@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/alertify.css">
     <link rel="stylesheet" type="text/css" href="assets/css/searchStyle.css">
     <link rel="stylesheet" type="text/css" href="assets/css/multiplePageStyle.css">
@@ -37,24 +36,19 @@
                 <h4 class="white-text">Login or SignUp using: </h4>
                 <br>
                 <br>
-                <div class="col s6">
-                    <div class="fb-login-button" scope="email" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
-                </div>
-                <div class="col s6">
-                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                <div class="col offset-s4 s4 offset-s4">
+                    <div class="g-signin2 center-align" data-onsuccess="onSignIn"></div>
                 </div>
             </div>
         </div>
     </div>
     <div class="container-fluid content" id="mainColor">
-            <nav class="row">
-                <div class="nav-wrapper s12 m12 l12" id="headerFooter">
-
-                  <img id="pawImage" src="assets/images/orangepaw.png" alt="pawPrint">
-                  <a id="fetchLogo" href="/">Fetch</a>
-
-                  <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-                  <ul class="right hide-on-med-and-down">
+        <nav class="row">
+            <div class="nav-wrapper s12 m12 l12" id="headerFooter">
+                <img id="pawImage" src="assets/images/orangepaw.png" alt="pawPrint">
+                <a id="fetchLogo" href="/">Fetch</a>
+                <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
                     <li><a id="fave" class="right-align" href="/favorites">Favorites</a></li>
                     <li><a id="admin" class="right-align" href="/admin">Admin</a></li>
                     <li><a id="logText" onclick="openNav()">Login or Sign Up</li>  
@@ -117,27 +111,26 @@
                 </section>
             </div>
             <div id="modalSection" class="col s12 m9 valign-wrapper">
-              <div id="petInfo" class="card medium center col s12 m9">
-                <div class="valign card-image">
-                  <img id="petPhoto" src="assets/images/adopt.jpg" alt="Pet">
-                  <span class="card-title"></span>
-                </div>
-
-                <div class="card-content">
-                  <p>The search for your perfect pet is just a few clicks away! Simply enter your ideal pet search parameters and start your adoption journey!</p>
-                </div>
-                <div class="card-action">
-                  <div class="col s6">
-                    <a class="btn-floating btn-large waves-effect waves-light favorite"><i class="fa fa-heart" id="heart" aria-hidden="true"></i></a>
-                  </div>
-                  <div class="col s6">
-                    <a class="btn-floating btn-large waves-effect waves-light arrow"><i class="fa fa-arrow-right green" aria-hidden="true"></i></a>
-                  </div>
-
+                <div id="petInfo" class="card medium center col s12 m9">
+                    <div class="valign card-image">
+                        <img id="petPhoto" src="assets/images/adopt.jpg" alt="Pet">
+                        <span class="card-title"></span>
+                    </div>
+                    <div class="card-content">
+                        <p>The search for your perfect pet is just a few clicks away! Simply enter your ideal pet search parameters
+                            and start your adoption journey!</p>
+                    </div>
+                    <div class="card-action">
+                        <div class="col s6">
+                            <a class="btn-floating btn-large waves-effect waves-light favorite"><i class="fa fa-heart" id="heart" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="col s6">
+                            <a class="btn-floating btn-large waves-effect waves-light arrow"><i class="fa fa-arrow-right green" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <!-- footer -->
     <footer class="page-footer center" id='headerFooter'>
@@ -286,7 +279,6 @@
             <button id="signUpButton" class="btn blue-grey waves-effect waves-light w100" type="submit" name="action">Sign Up</button>
         </div>
     </div>
-    <script src="javascript/facebookLogin.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script src="javascript/login.js"></script>
