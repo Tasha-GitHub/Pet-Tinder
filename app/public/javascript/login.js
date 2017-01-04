@@ -184,4 +184,6 @@
          logText.attr("onclick", "openNav()");
          logText.text("Login or Sign Up");
      });
+
+     // blank comment
  }
