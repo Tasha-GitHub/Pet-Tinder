@@ -80,10 +80,6 @@ $(document).ready(function () {
         var email = emailLoginInput.val().trim();
         var password = passwordLoginInput.val().trim();
 
-        // check user inputs
-        console.log("email", email);
-        console.log("password", password);
-
         // check to see if the fields have any user input
         if (email.length === 0 || password.length === 0) {
             alertify.error("Missing Required Fields");
@@ -115,6 +111,7 @@ $(document).ready(function () {
                     if (data.confirm) {
 
                         var name = data.name;
+                        console.log(data)
 
                         // update DOM with current user login status and change this DOM element to perform a signout function
                         var logText = $("#logText");
@@ -132,6 +129,7 @@ $(document).ready(function () {
                         // Store all content into localStorage
                         localStorage.setItem("userID", data.result);
                         localStorage.setItem("userName", data.name);
+                        localStorage.setItem("admin", data.admin);
                     } else {
                         alertify.error("Invalid Password or Email");
                     }
@@ -189,6 +187,7 @@ $(document).ready(function () {
                             // Store all content into localStorage
                             localStorage.setItem("userID", data.result);
                             localStorage.setItem("userName", data.user_name);
+                            localStorage.setItem("admin", data.admin);
 
                             // close the overlay
                             closeNav();
