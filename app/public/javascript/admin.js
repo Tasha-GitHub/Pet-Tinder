@@ -40,6 +40,13 @@ $(document).ready(function(){
 	        });
 	});
 
+	$("#deletePetBtn").on("click", function(e){
+		e.preventDefault();
+		var name = $("#deletePetName").val().trim();
+		console.log(name);
+		findPetName();
+	});
+
 	// populate table of pets in database
 	  function allPetsQuery() {
 
@@ -69,6 +76,36 @@ $(document).ready(function(){
 
       });
   }
+
+  // find a specific pet by name
+  function findPetName() {
+  	// Here we get the location of the root page.
+      var currentURL = window.location.origin;
+
+      // The AJAX function uses the URL of our API to GET the data associated with it
+      $.ajax({ url: currentURL + "/pets/:name?", method: "GET" })
+      .done(function(petName) {
+      	// clear table beforehand
+      	$("#petTable").empty();
+      	// add pets from database
+      	for (var i = 0; i < petName.length; i++) {
+      		var pet = $("<tr>");
+      		var petId = $("<td>" + petName[i].id + "</td>");
+      		pet.append(petId);
+      		var petName = $("<td>" + petName[i].pet_name + "</td>");
+      		pet.append(petName);
+      		var petPic = $("<td><img class=\"responsive-img circle smallPic\" src='"+petName[i].pet_photo+"'' alt='"+petName[i].pet_name+"'></td>");
+      		pet.append(petPic);
+      		var petAdopted = $("<td></td>");
+      		var buttonId = $("<a class=\"waves-effect waves-light btn\"><i class=\"material-icons\">done</i></a>").data("data-idNum", petName[i].id).addClass("deletePet");
+      		petAdopted.append(buttonId);
+      		pet.append(petAdopted);
+      		$("#petTable").append(pet);
+      	}
+
+      });
+
+      }
 
 	// remove pets from database
 	$("#petTable").on("click", ".deletePet", function(e){

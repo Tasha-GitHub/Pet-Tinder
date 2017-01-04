@@ -150,6 +150,18 @@ module.exports = function (app) {
 
 	});
 
+	app.get("/pets/:name?", function (req, res) {
+		db.Pet.findAll({
+			where: {
+				pet_name: req.params.name
+			}
+		})
+			.then(function (result) {
+				return res.json(result);
+			});
+
+	});
+
 	app.get("/search/:type?/:age?/:size?/:gender?", function (req, res) {
 		var type = req.params.type;
 		var age = req.params.age;
