@@ -155,6 +155,20 @@ module.exports = function (app) {
 
 	});
 
+	app.get("/pets/:name?", function (req, res) {
+		var name = req.params.name;
+		console.log(name);
+		db.Pet.findAll({
+			where: {
+				pet_name: name
+			}
+		})
+			.then(function (result) {
+				return res.json(result);
+			});
+
+	});
+
 	app.get("/search/:type?/:age?/:size?/:gender?", function (req, res) {
 		var type = req.params.type;
 		var age = req.params.age;
