@@ -4,6 +4,7 @@ var nightmare = Nightmare({ show: true })
 nightmare
     .viewport(1080, 1200)
     .goto('https://polar-spire-88666.herokuapp.com/')
+    .click('#slide-outm')
     .click('#signUpModalButton')
     .type('input[id="nameSignUpInput"]', 'Shweta Rane')
     .wait(20)
@@ -17,6 +18,8 @@ nightmare
     .wait(20)
     .click('#signUpButton')
     .wait(20)
+    .click('.closebtn')
+
 
  
  .evaluate(function () {
