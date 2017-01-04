@@ -71,28 +71,33 @@ if (JSON.parse(localStorage.getItem("userID"))) {
 
           // Create the materialize card and 
           var savedPet = $("<div>");
-          savedPet.addClass("card col s12 m4");
+          savedPet.addClass("col s12 m4");
           savedPet.attr("id", favorites[i].PetId);
           //console.log(favorites[i].PetId);
+
+          var card = $("<div>");
+          card.addClass("card");
+          savedPet.append(card);
           
           // add the pet image to the saved pet card
           var savedImage = $("<div>");
-          savedImage.addClass("card-image waves waves-effect waves-block waves-light");
-          savedImage.append("<img class='activator' src='" + favorites[i].Pet.pet_photo + "'>");
-          savedPet.append(savedImage);
+          savedImage.addClass("card-image");
+          savedImage.append("<img class='responsive-img' src='" + favorites[i].Pet.pet_photo + "'>");
+          savedImage.append("<span class='card-title'>" + favorites[i].Pet.pet_name + "</span>") 
+          card.append(savedImage);
+
+          // have the bio slide up when link clicked
+          var savedBio = $("<div>");
+          savedBio.addClass("card-content");
+          savedBio.append("<p>" + favorites[i].Pet.pet_description + "</p>");
+          card.append(savedBio);
           // add an adopt option and a link to look at the pets bio again
           var savedAdopt = $("<div>");
-          savedAdopt.addClass("card-content");
-          savedAdopt.append("<span class='card-title activator grey-text text-darken-4'>" + favorites[i].Pet.pet_name + "<i class='material-icons right'>more_vert</i></span>");
-          savedAdopt.append("<button class='btn adopt'><a href='https://www.austinpetsalive.org/adopt/' target ='_blank'>Adopt this Pet!</a></button>");
-          savedAdopt.append("<button class='btn removePet' id="+favorites[i].PetId+">Remove Favorite</button>");
-          savedPet.append(savedAdopt);
-          // have the bio slide up whe link clicked
-          var savedBio = $("<div>");
-          savedBio.addClass("card-reveal");
-          savedBio.append("<span class='card-title grey-text text-darken-4'>" + favorites[i].Pet.pet_name + "<i class='material-icons right'>close</i></span>");
-          savedBio.append("<p>" + favorites[i].Pet.pet_description + "</p>");
-          savedPet.append(savedBio);
+          savedAdopt.addClass("card-action");
+          savedAdopt.append("<button class='col s5 btn adopt'><a href='https://www.austinpetsalive.org/adopt/' target ='_blank'>Adopt</a></button>");
+          savedAdopt.append("<button class='col s5 offset-s2 btn removePet' id="+favorites[i].PetId+">Remove</button>");
+          card.append(savedAdopt);
+          
           // send it to the favorites section
           $("#favorites").append(savedPet);
         }

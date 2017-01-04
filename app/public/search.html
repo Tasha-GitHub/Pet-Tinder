@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -23,38 +23,49 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/jTinder.css"> -->
     <!--link to favicon -->
     <link href="assets/images/favicon.ico" rel="icon" type="image/x-icon" />
-      <link rel="stylesheet" type="text/css" href="assets/css/searchStyle.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/searchStyle.css">
 </head>
 
 <body>
-    
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <!-- Overlay content -->
         <div class="overlay-content">
-            <button id="log" id="loginModalButton" data-target="loginModal" class="btn blue-grey waves-light waves-effect modal-close">Login</button>
+            <button id="loginModalButton" data-target="loginModal" class="btn blue-grey waves-light waves-effect modal-close">Login</button>
             <button id="signUpModalButton" data-target="signUpModal" class="btn blue-grey waves-light waves-effect modal-close">Sign Up</button>
+            <div id="oAuthSection" class="row">
+                <br>
+                <br>
+                <h6 class="white-text">Or Login or SignUp using: </h6>
+                <br>
+                <br>
+                <div class="col s6">
+                    <div class="fb-login-button" scope="email" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+                </div>
+                <div class="col s6">
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="container-fluid content" id="mainColor">
             <nav class="row">
                 <div class="nav-wrapper s12 m12 l12" id="headerFooter">
-                  <img src="assets/images/orangepaw.png" alt="pawPrint">
-                  <a id="fetchLogo" href="#!">Fetch</a>
+
+                  <img id="pawImage" src="assets/images/orangepaw.png" alt="pawPrint">
+                  <a id="fetchLogo" href="/">Fetch</a>
+
                   <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
                   <ul class="right hide-on-med-and-down">
                     <li><a id="fave" class="right-align" href="/favorites">Favorites</a></li>
-                    <li><a id="log" onclick="openNav()">Login or Sign Up</li>  
+                    <li><a id="logText" onclick="openNav()">Login or Sign Up</li>  
                   </ul>
                   <ul class="side-nav" id="mobile">
                     <li><a href="/favorites">Favorites</a></li>
-                    <li><a href="/search">Search Pets</a></li>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/signup">Sign Up</a></li>
-                    <li><a id="log" onclick="openNav()">Login or Sign Up</a></li>
-                  </ul>
-                </div>
-            </nav>
+                    <li><a class="logTextMobile" onclick="openNav()">Login or Sign Up</a></li>
+                </ul>
+            </div>
+        </nav>
         <div class="row">
             <div class="col s12 m3 side-menu">
                 <section class="panel panel-primary">
@@ -64,15 +75,15 @@
                     </div>
                     <div class="panel-body">
                         <form role="form">
-                              <div class="input-field col s12 m12 l12" >
+                            <div class="input-field col s12 m12 l12">
                                 <select id="type">
                                   <option id="animalType" value="" disabled selected>Animal Type</option>
                                   <option value="cat">Cat</option>
                                   <option value="dog">Dog</option>
                                 </select>
-                              </div>
-                              <div class="input-field col s12 m12 l12">
-                                <select id ="age">
+                            </div>
+                            <div class="input-field col s12 m12 l12">
+                                <select id="age">
                                   <option value="" disabled selected>Age</option>
                                   <option value="1">0-1</option>
                                   <option value="2">2</option>
@@ -80,35 +91,32 @@
                                   <option value="4">4</option>
                                   <option value="5">5+</option>
                                 </select>
-                              </div>
-                              <div class="input-field col s12 m12 l12">
-                                <select id ="size">
+                            </div>
+                            <div class="input-field col s12 m12 l12">
+                                <select id="size">
                                   <option value="" disabled selected>Size</option>
                                   <option value="small">Small</option>
                                   <option value="medium">Medium</option>
                                   <option value="large">Large</option>
                                 </select>
-                              </div>
-                              <div class="input-field col s12 m12 l12">
-                                <select id ="gender">
+                            </div>
+                            <div class="input-field col s12 m12 l12">
+                                <select id="gender">
                                   <option value="" disabled selected>Gender</option>
                                   <option value="male">Male</option>
                                   <option value="female">Female</option>
                                 </select>
-                              </div>
-
+                            </div>
                             <br>
                             <br>
                             <button type="submit" class="btn center-align col s5" id="runSearch"><i class="material-icons center-align">search</i>Search</button>
                             <br>
                             <br>
-                            <button type="button" class="btn center-align col s5 offset-s1" id="clearAll"><i class="material-icons center-align">delete</i>Clear</button>
+                            <button type="button" class="btn center-align col s5 offset-s2" id="clearAll"><i class="material-icons center-align">delete</i>Clear</button>
                         </form>
                     </div>
                 </section>
-                
             </div>
-            
             <div id="modalSection" class="col s12 m9 valign-wrapper">
               <div id="petInfo" class="card medium center col s12 m9">
                 <div class="valign card-image">
@@ -120,11 +128,15 @@
                   <p>The search for your perfect pet is just a few clicks away! Simply enter your ideal pet search parameters and start your adoption journey!</p>
                 </div>
                 <div class="card-action">
-                  <a class="btn-floating btn-large waves-effect waves-light favorite"><i class="fa fa-heart" id="heart" aria-hidden="true"></i></a>
-                  <a class="btn-floating btn-large waves-effect waves-light arrow"><i class="fa fa-arrow-right green" aria-hidden="true"></i></a>
+                  <div class="col s6">
+                    <a class="btn-floating btn-large waves-effect waves-light favorite"><i class="fa fa-heart" id="heart" aria-hidden="true"></i></a>
+                  </div>
+                  <div class="col s6">
+                    <a class="btn-floating btn-large waves-effect waves-light arrow"><i class="fa fa-arrow-right green" aria-hidden="true"></i></a>
+                  </div>
+
                 </div>
-              </div>
-            </div>                        
+            </div>
         </div>
     </div>
     <!-- footer -->
@@ -219,11 +231,11 @@
             <li><a class="waves-effect" href="https://twitter.com/rjrowland" target="_blank">Twitter <img src="assets/images/twitter.png"></a></li>
           </ul>
           <a href="#" data-activates="slide-outr" class="button-collapse tooltipped" data-position="top" data-delay="50" data-tooltip="Randal's Social Networks.">Randal</a> 2016</small>
-          </div> 
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+        </div>
+    </footer>
     <!-- Modals for Login and Sign Up -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
@@ -241,19 +253,6 @@
                 </div>
             </div>
             <button id="loginButton" class="btn blue-grey waves-effect waves-ligh w100" type="submit" name="action">Login</button>
-            <br>
-            <div class="loginWith">
-                <p class="center">Login With:</p>
-                <div class="center row">
-                    <div class="col s6">
-                        <div class="fb-login-button" scope="email" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
-                    </div>
-                    <div class="col s6">
-                        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                    </div>
-                </div>
-                <p class="center" id="status"></p>
-            </div>
         </div>
     </div>
     </div>
@@ -287,35 +286,19 @@
                 </div>
             </div>
             <button id="signUpButton" class="btn blue-grey waves-effect waves-light w100" type="submit" name="action">Sign Up</button>
-            <br>
-            <div class="loginWith">
-                <br>
-                <div class="center row">
-                    <div class="col s6 fb-login-button w100" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
-                    <div class="col s6 g-signin2 w100" data-size="large" data-onsuccess="onSignIn"></div>
-                </div>
-            </div>
         </div>
     </div>
-    <div id="ohSnap"></div>
-    <!-- <script src="javascript/facebookLogin.js"></script> -->
+    <script src="javascript/facebookLogin.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script src="javascript/login.js"></script>
     <script src="javascript/frontend.js"></script>
-   <!--  jQuery lib --> 
+    <!--  jQuery lib -->
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="javascript/alertify.js"></script>
-
-   <!--  transform2d lib-->
-    <!-- <script type="text/javascript" src="js/jquery.transform2d.js"></script> -->
-
-    <!-- jTinder lib -->
-  <!--   <script type="text/javascript" src="js/jquery.jTinder.js"></script> -->
-
-    <!-- jTinder initialization script -->
-    <!-- <script>$("#tinderslide").jTinder();</script> -->
     <script type="text/javascript" src="javascript/mainSearchPage.js"></script>
+    <!--  transform2d lib-->
+    <script type="text/javascript" src="js/jquery.transform2d.js"></script>
 </body>
 
 </html>

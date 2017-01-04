@@ -21,7 +21,7 @@
 	<div id="mainColor" class="content">
 		<nav class="row">
 		    <div id="headerFooter" class="nav-wrapper s12 m12 l12">
-          <img src="assets/images/orangepaw.png">
+          <img id="pawImage" src="assets/images/orangepaw.png">
 		      <a id="fetchLogo" href="#!" class="brand-logo">Fetch</a>
 		      <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 		      <ul class="right hide-on-med-and-down">
@@ -128,17 +128,19 @@
 <!-- Admin Form to Remove a Pet -->
         <div class="col s12 m6">
         <h3 id="remove" class="center">Remove a Pet</h3>
-<!--           <div class="row">
-            <form class="col m12 bottomAlign">
-              <div class="input-field col m4 offset-m2">
-                <input id="p_id" type="text" class="validate">
-                <label for="p_id">Pet ID</label>
+          <div class="row">
+            <form class="valign-wrapper">
+              <div class="input-field col s12 m6">
+                <input id="deletePetName" type="text" class="validate">
+                <label for="deletePetName">Pet Name</label>
               </div>
-              <div>
-                
+              <div class="valign col s6 m6">
+                <button class="btn waves-effect" type="submit" name="action" id ="deletePetBtn">Submit
+                  <i class="material-icons right">send</i>
+                </button>
               </div>
             </form>
-          </div> -->
+          </div>
           <div class="scrollable">
             <table class="highlight">
             <thead>
@@ -171,9 +173,6 @@
           </table>
           </div>
           <!-- <br><br> -->
-        <!--   <button class="btn waves-effect col m4 offset-m2" type="submit" name="action" id ="deletePetBtn">Submit
-                  <i class="material-icons right">send</i>
-          </button> -->
         </div>
   		</section>
 	</div>
