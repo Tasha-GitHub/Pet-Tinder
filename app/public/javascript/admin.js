@@ -44,7 +44,18 @@ $(document).ready(function(){
 		e.preventDefault();
 		var name = $("#deletePetName").val().trim();
 		console.log(name);
-		findPetName();
+		$.ajax({
+	            type: "GET",
+	            url: "/pets/" + name,
+	            data: name
+	        }).then(function(data){
+	        	if(data){
+	        		alertify.success("Found " + name + "(s)!");
+	        		findPetName();
+	        	} else {
+	        		alertify.error(name + " not found!");
+	        	}
+	        });
 	});
 
 	// populate table of pets in database
@@ -85,6 +96,7 @@ $(document).ready(function(){
       // The AJAX function uses the URL of our API to GET the data associated with it
       $.ajax({ url: currentURL + "/pets/:name?", method: "GET" })
       .done(function(petName) {
+      	console.log(petName);
       	// clear table beforehand
       	$("#petTable").empty();
       	// add pets from database
