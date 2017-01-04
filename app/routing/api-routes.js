@@ -176,9 +176,9 @@ module.exports = function (app) {
 	app.post("/add/favorite", function (req, res) {
 		var userId = req.body.user_id;
 		var petId = req.body.pet_id;
-		console.log(req.body)
-		console.log(userId);
-		console.log(petId);
+		// console.log(req.body)
+		// console.log("userID" + userId);
+		// console.log("petID"+petId);
 
 		db.userfav.create({
 			userId: userId,
@@ -193,7 +193,7 @@ module.exports = function (app) {
 
 	app.get("/users/:userID?", function (req, res) {
 		var userId = req.params.userID;
-		console.log(userId);
+		//console.log(userId);
 		db.userfav.findAll({
 				where: {
 					userId: userId
