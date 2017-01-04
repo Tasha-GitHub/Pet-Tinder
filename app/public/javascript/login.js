@@ -16,8 +16,12 @@ function onSignIn(googleUser) {
     }
 
     // perform Ajax call to the login path on google signin
+
+    // prepare currentURL string
+    var currentURL = window.location.origin;
+
     $.ajax({
-            url: '/login',
+            url: currentURL + '/login',
             type: 'POST',
             data: info
 
@@ -106,7 +110,7 @@ $(document).ready(function () {
                 .done(function (data) {
 
                     // see the data object returned from the server
-                    console.log(data);
+                    //console.log(data);
 
                     if (data.confirm) {
 
@@ -162,6 +166,8 @@ $(document).ready(function () {
                     email: email,
                     password: password
                 };
+                
+                // prepare currentURL string
                 var currentURL = window.location.origin;
                 //console.log(signUpObject);
 
@@ -172,7 +178,7 @@ $(document).ready(function () {
                         data: signUpObject
                     })
                     .done(function (data) {
-                        console.log(data)
+                        //console.log(data)
                         if (data) {
 
                             var name = data.user_name;

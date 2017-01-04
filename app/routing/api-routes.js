@@ -18,13 +18,13 @@ module.exports = function (app) {
 		var userLogin = req.body.email;
 		var userPassword = req.body.password;
 		var source = req.body.source;
-		console.log("/login: ", userLogin);
+		//console.log("/login: ", userLogin);
 		db.User.findOne({
 			where: {
 				user_name: userLogin
 			}
 		}).then(function (result) {
-			console.log("/login result: ", result);
+			//console.log("/login result: ", result);
 
 			// check for truthy of result
 			if (result) {
@@ -53,7 +53,6 @@ module.exports = function (app) {
 			} 
 			else if (req.body.source === "google") {
 				// create entry in database for user
-				console.log("/login else:");
 				var password = req.body.password;
 				bcrypt.hash(password, null, null, function (err, hash) {
 					// Store hash in your password DB.
@@ -61,7 +60,7 @@ module.exports = function (app) {
 						user_name: req.body.email,
 						user_password: hash
 					}).then(function (result) {
-						console.log("create: ", req.body.email);
+						//console.log("create: ", req.body.email);
 						userId = result.id;
 						// We have access to the new todo as an argument inside of the callback function
 						res.json({
@@ -90,7 +89,7 @@ module.exports = function (app) {
 				user_name: req.body.email,
 				user_password: hash
 			}).then(function (result) {
-				console.log(req.body.email);
+				//console.log(req.body.email);
 				userId = result.id;
 				// We have access to the new todo as an argument inside of the callback function
 				res.json({
