@@ -43,7 +43,7 @@
 
 /* The facebook and google signin buttons area */
 #oAuthSection {
-    width: 300px;
+    width: 500px;
     margin: 0 auto;
 }
 
@@ -82,7 +82,9 @@
      /* 30px top margin to avoid conflict with the close button on smaller screens */
  }
  /* The navigation links inside the overlay */
- 
+ .btn {
+    font-family: 'Acme', sans-serif !important;
+ }
  .overlay a {
      padding: 8px;
      text-decoration: none;

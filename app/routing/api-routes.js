@@ -17,7 +17,8 @@ module.exports = function (app) {
 	app.post("/login", function (req, res) {
 		var userLogin = req.body.email;
 		var userPassword = req.body.password;
-		console.log("/login: ", userLogin);
+		var source = req.body.source;
+		//console.log("/login: ", userLogin);
 		db.User.findOne({
 			where: {
 				user_name: userLogin
@@ -46,7 +47,8 @@ module.exports = function (app) {
 						name: userName
 					});
 				});
-			} else {
+			} 
+			else if (req.body.source === "google") {
 				// create entry in database for user
 				var password = req.body.password;
 				bcrypt.hash(password, null, null, function (err, hash) {
@@ -55,7 +57,7 @@ module.exports = function (app) {
 						user_name: req.body.email,
 						user_password: hash
 					}).then(function (result) {
-						console.log("create: ", req.body.email);
+						//console.log("create: ", req.body.email);
 						userId = result.id;
 						// We have access to the new todo as an argument inside of the callback function
 						res.json({
@@ -69,6 +71,8 @@ module.exports = function (app) {
 			// see error without breaking app. Since login failed.
 		}).catch(function (error) {
 			//console.log("/login .catch error: ", error);
+			console.log("Login failed. Sending response to client.")
+			res.status(400).send(error);
 
 		});
 	});
@@ -82,7 +86,7 @@ module.exports = function (app) {
 				user_name: req.body.email,
 				user_password: hash
 			}).then(function (result) {
-				console.log(req.body.email);
+				//console.log(req.body.email);
 				userId = result.id;
 				// We have access to the new todo as an argument inside of the callback function
 				res.json({
@@ -92,7 +96,7 @@ module.exports = function (app) {
 				});
 			});
 		});
-	});
+	});	
 	//deletes adopted pet
 	app.delete("/delete_pet", function (req, res) {
 		var petId = req.body.id;
@@ -144,6 +148,20 @@ module.exports = function (app) {
 
 	app.get("/all", function (req, res) {
 		db.Pet.findAll({})
+			.then(function (result) {
+				return res.json(result);
+			});
+
+	});
+
+	app.get("/pets/:name?", function (req, res) {
+		var name = req.params.name;
+		console.log(name);
+		db.Pet.findAll({
+			where: {
+				pet_name: name
+			}
+		})
 			.then(function (result) {
 				return res.json(result);
 			});

@@ -123,15 +123,18 @@ function petCardCreator(){
 	currentPet_id = animalList[counter].id;
 	var petDesription = animalList[counter].pet_description;
 	    	
-	$(".card-title").html(petName);
+	
 	$("#petPhoto").attr("src", petPhoto);
 	var cardDescription = $("<div>");
-	cardDescription.html(petDesription);
-	cardDescription.append("<ul></ul>");
-	cardDescription.find("ul").append("<li> &#9829 Breed: "+ petBreed + "</li>");
-	cardDescription.find("ul").append("<li> &#9829 Age: "+ petAge + "</li>");
-	cardDescription.find("ul").append("<li> &#9829 Gender: "+ petGender + "</li>");
-	cardDescription.find("ul").append("<li> &#9829 Size: "+ petSize + "</li>");
+	cardDescription.html('<h4>' + petName + '</h4>');
+	var listDiv = $("<div>");
+	listDiv.addClass("petCardInfo");
+	listDiv.append("<ul></ul>");
+	listDiv.find("ul").append("<li class=\"cardInfo\"> &#9829 Breed: "+ petBreed + "</li>");
+	listDiv.find("ul").append("<li class=\"cardInfo\"> &#9829 Age: "+ petAge + "</li>");
+	listDiv.find("ul").append("<li class=\"cardInfo\"> &#9829 Gender: "+ petGender + "</li>");
+	listDiv.find("ul").append("<li class=\"cardInfo\"> &#9829 Size: "+ petSize + "</li>");
+	cardDescription.append(listDiv);
 	$(".card-content").html(cardDescription);
 	counter++;
 }

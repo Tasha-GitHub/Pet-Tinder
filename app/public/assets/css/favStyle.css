@@ -29,4 +29,7 @@ p {
 a, .white-text {
 	font-family: 'Acme', sans-serif !important;
 }
+.faveImage {
+	height: 300px !important;
+}
 
