@@ -87,13 +87,14 @@ h4, #fave, #search, #admin, #logText {
 .white-text {
 	font-family: 'Acme', sans-serif !important;
 }
-ul {
-	text-align: left;
-	margin-left: 275px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
+
 .card-content {
 	margin: 10px !important;
 	padding: 0px !important;
+	display: flex;
+	justify-content: center;
+}
+.petCardInfo {
+	text-align: left;
+
 }
