@@ -17,13 +17,14 @@ module.exports = function (app) {
 	app.post("/login", function (req, res) {
 		var userLogin = req.body.email;
 		var userPassword = req.body.password;
+		var source = req.body.source;
 		console.log("/login: ", userLogin);
 		db.User.findOne({
 			where: {
 				user_name: userLogin
 			}
 		}).then(function (result) {
-			//console.log("/login result: ", result);
+			console.log("/login result: ", result);
 
 			// check for truthy of result
 			if (result) {
@@ -46,8 +47,10 @@ module.exports = function (app) {
 						name: userName
 					});
 				});
-			} else {
+			} 
+			else if (req.body.source === "google") {
 				// create entry in database for user
+				console.log("/login else:");
 				var password = req.body.password;
 				bcrypt.hash(password, null, null, function (err, hash) {
 					// Store hash in your password DB.
@@ -69,6 +72,8 @@ module.exports = function (app) {
 			// see error without breaking app. Since login failed.
 		}).catch(function (error) {
 			//console.log("/login .catch error: ", error);
+			console.log("Login failed. Sending response to client.")
+			res.status(400).send(error);
 
 		});
 	});
