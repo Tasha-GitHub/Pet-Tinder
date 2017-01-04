@@ -151,9 +151,11 @@ module.exports = function (app) {
 	});
 
 	app.get("/pets/:name?", function (req, res) {
+		var name = req.params.name;
+		console.log(name);
 		db.Pet.findAll({
 			where: {
-				pet_name: req.params.name
+				pet_name: name
 			}
 		})
 			.then(function (result) {
