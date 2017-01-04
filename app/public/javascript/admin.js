@@ -47,7 +47,7 @@ $(document).ready(function(){
       var currentURL = window.location.origin;
 
       // The AJAX function uses the URL of our API to GET the data associated with it
-      $.ajax({ url: "http://localhost:3000/all", method: "GET" })
+      $.ajax({ url: currentURL + "/all", method: "GET" })
       .done(function(allPets) {
       	// clear table beforehand
       	$("#petTable").empty();

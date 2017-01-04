@@ -92,7 +92,7 @@ module.exports = function (app) {
 				});
 			});
 		});
-	});
+	});	
 	//deletes adopted pet
 	app.delete("/delete_pet", function (req, res) {
 		var petId = req.body.id;
