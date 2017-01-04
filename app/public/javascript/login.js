@@ -35,6 +35,7 @@
              var logText = $("#logText");
              logText.attr("onclick", "signOut()");
              logText.text("Sign Out");
+             closeNav();
          })
          .fail(function (failedObject) {
              console.log("Google SignIn error", failedObject.responseText);
@@ -184,6 +185,4 @@
          logText.attr("onclick", "openNav()");
          logText.text("Login or Sign Up");
      });
-
-     // blank comment
  }
