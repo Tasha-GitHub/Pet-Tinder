@@ -10,7 +10,7 @@
 	color: #1B435D;
 	font-family: 'Acme', sans-serif !important;
 }
-a {
+a, .white-text {
 	font-family: 'Acme', sans-serif !important;
 }
 .input-field {
