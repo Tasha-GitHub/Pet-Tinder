@@ -11,12 +11,17 @@ function onSignIn(googleUser) {
         lastname: profile.getFamilyName(),
         photo: profile.getImageUrl(),
         email: profile.getEmail(),
-        password: profile.getId()
+        password: profile.getId(),
+        source: "google"
     }
 
     // perform Ajax call to the login path on google signin
+
+    // prepare currentURL string
+    var currentURL = window.location.origin;
+
     $.ajax({
-            url: '/login',
+            url: currentURL + '/login',
             type: 'POST',
             data: info
 
@@ -75,26 +80,42 @@ $(document).ready(function () {
     function loginClick(e) {
         e.preventDefault();
 
+        // get user inputs for log in
         var email = emailLoginInput.val().trim();
         var password = passwordLoginInput.val().trim();
 
+        // check user inputs
+        //console.log("email", email);
+        //console.log("password", password);
+
+        // check to see if the fields have any user input
         if (email.length === 0 || password.length === 0) {
             alertify.error("Missing Required Fields");
         } else {
+
+            // prepare loginObjec to send to the server
             var loginObject = {
                 email: email,
                 password: password
             };
 
+            // clear user input fields
             emailLoginInput.val("");
             passwordLoginInput.val("");
+
+            // prepare currentURL string
             var currentURL = window.location.origin;
+
             $.ajax({
                     type: "POST",
                     url: currentURL + "/login",
                     data: loginObject
                 })
                 .done(function (data) {
+
+                    // see the data object returned from the server
+                    //console.log(data);
+
                     if (data.confirm) {
 
                         var name = data.name;
@@ -110,15 +131,18 @@ $(document).ready(function () {
                         // close any open modals
                         $(".modal").modal("close");
 
-                        // Emptied the localStorage
+                        // Empty the localStorage
                         localStorage.clear();
                         // Store all content into localStorage
                         localStorage.setItem("userID", data.result);
                         localStorage.setItem("userName", data.name);
-
                     } else {
                         alertify.error("Invalid Password or Email");
                     }
+
+                }).fail(function (failed) {
+                    alertify.error("Invalid Password or Email");
+
                 });
         }
     }
@@ -144,6 +168,8 @@ $(document).ready(function () {
                     email: email,
                     password: password
                 };
+                
+                // prepare currentURL string
                 var currentURL = window.location.origin;
                 //console.log(signUpObject);
 
@@ -154,13 +180,27 @@ $(document).ready(function () {
                         data: signUpObject
                     })
                     .done(function (data) {
+                        //console.log(data)
                         if (data) {
+
+                            var name = data.user_name;
+
+                            // update DOM with current user login status and change this DOM element to perform a signout function
+                            var logText = $("#logText");
+                            logText.attr("onclick", "signOut()");
+                            logText.text("Logged in as: " + name);
+
                             // Emptied the localStorage
                             localStorage.clear();
                             // Store all content into localStorage
                             localStorage.setItem("userID", data.result);
-                            //reload page
-                            location.reload();
+                            localStorage.setItem("userName", data.user_name);
+
+                            // close the overlay
+                            closeNav();
+
+                            // close any open modals
+                            $(".modal").modal("close");
                         }
                     });
 
