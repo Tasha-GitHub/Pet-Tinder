@@ -174,13 +174,22 @@ $(document).ready(function () {
                         data: signUpObject
                     })
                     .done(function (data) {
+                        console.log(data)
                         if (data) {
+
+                            var name = data.user_name;
+
+                            // update DOM with current user login status and change this DOM element to perform a signout function
+                            var logText = $("#logText");
+                            logText.attr("onclick", "signOut()");
+                            logText.text("Logged in as: " + name);
+
                             // Emptied the localStorage
                             localStorage.clear();
                             // Store all content into localStorage
                             localStorage.setItem("userID", data.result);
-                            localStorage.setItem("userName", data.name);
-                            
+                            localStorage.setItem("userName", data.user_name);
+
                             // close the overlay
                             closeNav();
 
