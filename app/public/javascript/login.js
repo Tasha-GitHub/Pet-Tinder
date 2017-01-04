@@ -38,9 +38,14 @@ function onSignIn(googleUser) {
             logText.attr("onclick", "signOut()");
             logText.text("Logged in as: " + name);
             closeNav();
+
+            // Emptied the localStorage
+            localStorage.clear();
+            // Store all content into localStorage
+            localStorage.setItem("userID", googleSuccess.result);
         })
         .fail(function (failedObject) {
-            console.log("Google SignIn error", failedObject.responseText);
+            console.log("Google SignIn error", failedObject);
         });
 };
 
@@ -179,7 +184,6 @@ function closeNav() {
 
 // this function will signout the current user
 function signOut() {
-    alertify.error("This function will signout the current user.");
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
         alertify.success('Signed out.');
