@@ -95,12 +95,25 @@ $(document).ready(function () {
                 })
                 .done(function (data) {
                     if (data.confirm) {
+
+                        var name = data.name;
+
+                        // update DOM with current user login status and change this DOM element to perform a signout function
+                        var logText = $("#logText");
+                        logText.attr("onclick", "signOut()");
+                        logText.text("Logged in as: " + name);
+
+                        // close the overlay
+                        closeNav();
+
+                        // close any open modals
+                        $(".modal").modal("close");
+
                         // Emptied the localStorage
                         localStorage.clear();
                         // Store all content into localStorage
                         localStorage.setItem("userID", data.result);
-                        //reload page
-                        location.reload();
+                        
                     } else {
                         alertify.error("Invalid Password or Email");
                     }
@@ -114,7 +127,8 @@ $(document).ready(function () {
         var password2 = passwordSignUpInput2.val().trim();
 
         var email = emailSignUpInput.val().trim();
-        console.log(email);
+
+        // validate the given email address to see if it is a valid email
         if (validateEmail(email)) {
 
             if (password1 === password2 && password1.length > 3) {
