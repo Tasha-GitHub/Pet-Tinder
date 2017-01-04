@@ -54,8 +54,6 @@ $(document).ready(function () {
     // input fields
     var emailLoginInput = $("#emailLogin");
     var passwordLoginInput = $("#passwordLogin");
-    var nameSignUpInput = $("#nameSignUpInput");
-    var phoneSignUpInput = $("#phoneSignUpInput");
     var emailSignUpInput = $("#emailSignUpInput");
     var passwordSignUpInput1 = $("#passwordSignUpInput1");
     var passwordSignUpInput2 = $("#passwordSignUpInput2");
@@ -118,16 +116,12 @@ $(document).ready(function () {
         if (password1 === password2 && password1.length > 3) {
             e.preventDefault();
             var password = password1;
-            var name = nameSignUpInput.val().trim();
             var email = emailSignUpInput.val().trim();
-            var phone = phoneSignUpInput.val().trim();
             var password1 = passwordSignUpInput1.val().trim();
             var password2 = passwordSignUpInput2.val().trim();
 
             var signUpObject = {
-                name: name,
                 email: email,
-                phone: phone,
                 password: password
             };
             var currentURL = window.location.origin;
@@ -150,9 +144,7 @@ $(document).ready(function () {
                     }
                 });
 
-            nameSignUpInput.val("");
             emailSignUpInput.val("");
-            phoneSignUpInput.val("");
             passwordSignUpInput1.val("");
             passwordSignUpInput2.val("");
         } else if (password1 <= 3) {
