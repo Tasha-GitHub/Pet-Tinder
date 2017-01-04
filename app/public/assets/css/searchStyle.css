@@ -95,5 +95,27 @@ h4, #fave, #search, #admin, #logText {
 }
 .petCardInfo {
 	text-align: left;
+}
 
+/*------------------ media queries ------------------------------*/
+@media only screen and (max-width : 768px) {
+  
+}
+
+@media only screen and (min-width:400px) and (max-width : 480px) {
+  #modalSection {
+    margin-top: 10px;
+  }
+  .side-menu {
+    border-right: none;
+  }
+}
+
+@media only screen and (max-width : 375px) {
+  #modalSection {
+    margin-top: 10px;
+  }
+  .side-menu {
+    border-right: none;
+  }
 }
