@@ -81,8 +81,8 @@ $(document).ready(function () {
         var password = passwordLoginInput.val().trim();
 
         // check user inputs
-        console.log("email", email);
-        console.log("password", password);
+        //console.log("email", email);
+        //console.log("password", password);
 
         // check to see if the fields have any user input
         if (email.length === 0 || password.length === 0) {
@@ -110,7 +110,7 @@ $(document).ready(function () {
                 .done(function (data) {
 
                     // see the data object returned from the server
-                    console.log(data);
+                    //console.log(data);
 
                     if (data.confirm) {
 
@@ -174,7 +174,7 @@ $(document).ready(function () {
                         data: signUpObject
                     })
                     .done(function (data) {
-                        console.log(data)
+                        //console.log(data)
                         if (data) {
 
                             var name = data.user_name;
