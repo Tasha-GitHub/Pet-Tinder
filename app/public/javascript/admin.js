@@ -58,10 +58,10 @@ $(document).ready(function(){
       		pet.append(petId);
       		var petName = $("<td>" + allPets[i].pet_name + "</td>");
       		pet.append(petName);
-      		var petPic = $("<td><img class=\"responsive-img circle\" src='"+allPets[i].pet_photo+"'' alt='"+allPets[i].pet_name+"'></td>");
+      		var petPic = $("<td><img class=\"responsive-img circle smallPic\" src='"+allPets[i].pet_photo+"'' alt='"+allPets[i].pet_name+"'></td>");
       		pet.append(petPic);
       		var petAdopted = $("<td></td>");
-      		var buttonId = $("<a class=\"waves-effect waves-light btn\"><i class=\"material-icons\">done</i></a>").data("data-idNum", allPets[i].id).addClass(".deletePet");
+      		var buttonId = $("<a class=\"waves-effect waves-light btn\"><i class=\"material-icons\">done</i></a>").data("data-idNum", allPets[i].id).addClass("deletePet");
       		petAdopted.append(buttonId);
       		pet.append(petAdopted);
       		$("#petTable").append(pet);
@@ -71,7 +71,7 @@ $(document).ready(function(){
   }
 
 	// remove pets from database
-	$(".deletePet").on("click", function(e){
+	$("#petTable").on("click", ".deletePet", function(e){
 		e.preventDefault();
 		var petId = $(this).data("idNum");
 		var deletePet = {
