@@ -76,15 +76,18 @@
          var email = emailLoginInput.val().trim();
          var password = passwordLoginInput.val().trim();
 
-         var loginObject = {
-             email: email,
-             password: password
+         if(email.length === 0 || password.length === 0){
+            alertify.error("Missing Required Fields");
+         } else {
+            var loginObject = {
+            email: email,
+            password: password
          };
 
-         emailLoginInput.val("");
-         passwordLoginInput.val("");
-         var currentURL = window.location.origin;
-         $.ajax({
+            emailLoginInput.val("");
+            passwordLoginInput.val("");
+            var currentURL = window.location.origin;
+            $.ajax({
                  type: "POST",
                  url: currentURL + "/login",
                  data: loginObject
@@ -101,6 +104,10 @@
                      alertify.error("Invalid Password or Email");
                  }
              });
+
+         }
+
+
 
      }
 

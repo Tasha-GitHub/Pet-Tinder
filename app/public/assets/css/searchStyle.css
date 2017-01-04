@@ -52,22 +52,27 @@ p {
   color: #1B435D !important;
   font-family: 'Acme', sans-serif !important;	
 }
-h4, #fave, #search {
+h4, #fave, #search, #admin, #logText {
   font-family: 'Acme', sans-serif !important;
 }
 /*------------------ search bar styling -------------------------*/
 /* label color */
    .input-field {
-     color: #1B435D;
+     color: #1B435D !important;
      font-family: 'Acme', sans-serif !important;
    }
   /* label underline focus color */
-   /*.input-field input[type=text]:focus {
+   .input-field input[type=text]:focus {
      border-bottom: 1px solid #1B435D !important;
      box-shadow: 0 1px 0 0 #1B435D !important;
    }
-*/
+.location {
+	color: #1B435D !important;
+}
 
 .dropdown-content li>a, .dropdown-content li>span{
 	color:#1B435D;
+}
+.white-text {
+	font-family: 'Acme', sans-serif !important;
 }
