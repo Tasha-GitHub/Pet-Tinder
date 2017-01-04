@@ -95,7 +95,8 @@ module.exports = function (app) {
 				res.json({
 					confirm: true,
 					user_name: req.body.email,
-					result: userId
+					result: userId,
+					admin: false
 				});
 			});
 		});
