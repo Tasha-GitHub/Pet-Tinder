@@ -38,6 +38,7 @@ function onSignIn(googleUser) {
             localStorage.clear();
             // Store all content into localStorage
             localStorage.setItem("userID", googleSuccess.result);
+            localStorage.setItem("userName", googleSuccess.name);
         })
         .fail(function (failedObject) {
             console.log("Google SignIn error", failedObject);
@@ -113,7 +114,8 @@ $(document).ready(function () {
                         localStorage.clear();
                         // Store all content into localStorage
                         localStorage.setItem("userID", data.result);
-                        
+                        localStorage.setItem("userName", data.name);
+
                     } else {
                         alertify.error("Invalid Password or Email");
                     }
@@ -196,6 +198,9 @@ function signOut() {
         logText.attr("onclick", "openNav()");
         logText.text("Login or Sign Up");
     });
+
+    // Emptied the localStorage
+    localStorage.clear();
 }
 
 // this function will validate an email. taken from http://www.w3resource.com/javascript/form/email-validation.php
