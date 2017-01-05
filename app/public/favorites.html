@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Favorites</title>
+  <title>Favorites</title>
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<!--Import Google Icon Font-->
+  <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
   <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- <meta name="description" content="This pet locator site helps you find the perfect pet that is currently up for adoption."> -->
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="assets/css/multiplePageStyle.css"> 
+  <link rel="stylesheet" type="text/css" href="assets/css/multiplePageStyle.css">
   <link rel="stylesheet" type="text/css" href="assets/css/favStyle.css">
   <link rel="stylesheet" type="text/css" href="assets/css/alertify.css">
   <!--link to favicon -->
@@ -21,34 +22,33 @@
   <!--font styling-->
   <link href="https://fonts.googleapis.com/css?family=Acme|Amatic+SC" rel="stylesheet">
 </head>
+
 <body>
-
-	<div id="mainColor" class="content">
-		  <nav class="row">
-        <div class="nav-wrapper s12 m12 l12" id="headerFooter">
-            <img id="pawImage" src="assets/images/orangepaw.png" alt="pawPrint">
-            <a id="fetchLogo" href="/">Fetch</a>
-            <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a id="fave" class="right-align" href="/favorites">Favorites</a></li>
-                <li><a id="admin" class="right-align" href="/admin">Admin</a></li>
-            </ul>
-            <ul class="side-nav" id="mobile">
-                <li><a href="/favorites">Favorites</a></li>
-                <li><a id="admin" href="/admin">Admin</a></li>
-            </ul>
-        </div>
-      </nav>
-  		<section class="row" id="favorites">
-
-  		</section>
-	</div>
-<!-- footer -->
-	<footer id="headerFooter" class="page-footer center">
-		<div class="container">
-			<div class="row">
-				<div class="col s12">
-					<small class="white-text">&copy; Created by:
+  <div id="mainColor" class="content">
+    <nav class="row">
+      <div class="nav-wrapper s12 m12 l12" id="headerFooter">
+        <img id="pawImage" src="assets/images/orangepaw.png" alt="pawPrint">
+        <a id="fetchLogo" href="/">Fetch</a>
+        <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a id="fave" class="right-align" href="/favorites">Favorites</a></li>
+          <li><a id="admin" class="right-align" href="/admin">Admin</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile">
+          <li><a href="/favorites">Favorites</a></li>
+          <li><a id="admin" href="/admin">Admin</a></li>
+        </ul>
+      </div>
+    </nav>
+    <section class="row" id="favorites">
+    </section>
+  </div>
+  <!-- footer -->
+  <footer id="headerFooter" class="page-footer center">
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <small class="white-text">&copy; Created by:
            <ul id="slide-out" class="side-nav">
             <li>
             <div class="userView">
@@ -135,19 +135,30 @@
             <li><a class="waves-effect" href="https://twitter.com/rjrowland" target="_blank">Twitter <img src="assets/images/twitter.png"></a></li>
           </ul>
           <a href="#" data-activates="slide-outr" class="button-collapse tooltipped" data-position="top" data-delay="50" data-tooltip="Randal's Social Networks.">Randal</a> 2016</small>
-          </div> 
         </div>
       </div>
     </div>
+    </div>
+    <!-- modal for email form -->
+    <div id="emailModal" class="modal">
+      <div class="modal-content">
+        <h4 class="center">Send Email to Adopt!</h4>
+        <form method="POST" action="http://formspree.io/fetchdb111@gmail.com">
+          <input type="email" name="email" placeholder="Your email">
+          <textarea name="message" placeholder="Your message"></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
   </footer>
-	<!--Import jQuery before Materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <script type="text/javascript" src="javascript/alertify.js"></script>
-    <script type="text/javascript" src="javascript/frontend.js"></script>
-    <!-- js to populate favs -->
-    <script type="text/javascript" src="./javascript/search.js"></script>
-    <script type="text/javascript" src="javascript/favorites.js"></script>
-
+  <!--Import jQuery before Materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+  <script type="text/javascript" src="javascript/alertify.js"></script>
+  <script type="text/javascript" src="javascript/frontend.js"></script>
+  <!-- js to populate favs -->
+  <script type="text/javascript" src="./javascript/search.js"></script>
+  <script type="text/javascript" src="javascript/favorites.js"></script>
 </body>
+
 </html>
