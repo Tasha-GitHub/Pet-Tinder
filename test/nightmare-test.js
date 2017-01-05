@@ -7,7 +7,7 @@ nightmare
   // .goto('http://localhost:3000/')
    .click('#logText')
    .click('#loginModalButton')
-  .type('input[type="email"]', 'shveta@gmail.com')
+  .type('input[type="email"]', 'fetch@gmail.com')
     .wait(10)
   .type('input[type="password"]', 'abcde')  
       .wait(10)
