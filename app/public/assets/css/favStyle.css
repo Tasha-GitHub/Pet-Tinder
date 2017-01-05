@@ -28,8 +28,14 @@ p {
 }
 a, .white-text {
 	font-family: 'Acme', sans-serif !important;
+	text-align: center;
 }
 .faveImage {
 	height: 300px !important;
+}
+h2 {
+	font-family: 'Acme', sans-serif !important;
+	color: white !important;
+	text-align: center;
 }
 
