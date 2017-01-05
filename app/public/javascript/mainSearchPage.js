@@ -10,8 +10,9 @@ var currentUser_id;
 $(document).ready(function() {
 	
    	//runs when a user submits a search
-	$("#runSearch").on("click", function(e){
+	$(".runSearch").on("click", function(e){
 		e.preventDefault();
+		console.log("hi")
 		counter = 0;
 		//variabels for searchObj object
 		var type = $("#type").val().trim();
@@ -48,7 +49,7 @@ $(document).ready(function() {
 	});
 
 	//clears users inputs
-	$("#clearAll").on("click", function(e){
+	$(".clearAll").on("click", function(e){
 		e.preventDefault();
 		var select = $('select');
 	    select.prop('selectedIndex', 0); //Sets the first option as selected
