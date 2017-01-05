@@ -13,6 +13,10 @@
 a, .white-text {
 	font-family: 'Acme', sans-serif !important;
 }
+.warningMessage {
+	font-family: 'Acme', sans-serif !important;
+	color: white !important;
+}
 .input-field {
      color: #1B435D !important;
    }
