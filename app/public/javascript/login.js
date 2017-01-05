@@ -167,7 +167,7 @@ $(document).ready(function () {
                     email: email,
                     password: password
                 };
-                
+
                 // prepare currentURL string
                 var currentURL = window.location.origin;
                 //console.log(signUpObject);
@@ -222,6 +222,8 @@ $(document).ready(function () {
 /* Open when someone clicks on the span element */
 function openNav() {
     document.getElementById("myNav").style.height = "100%";
+    // Hide sideNav
+    $('.button-collapse').sideNav('hide');
 }
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
