@@ -33,7 +33,7 @@
   margin-top: 10px;
 
 }
-#runSearch, #clearAll, #log{
+.runSearch, .clearAll, #log{
   background-color: #1B435D;
   font-family: 'Acme', sans-serif !important;
 }
