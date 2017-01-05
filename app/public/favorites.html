@@ -142,11 +142,13 @@
     <!-- modal for email form -->
     <div id="emailModal" class="modal">
       <div class="modal-content">
-        <h4 class="center">Send Email to Adopt!</h4>
+        <h4 class="center">Send Email to Adopt this Pet!</h4>
         <form method="POST" action="http://formspree.io/fetchdb111@gmail.com">
-          <input type="email" name="email" placeholder="Your email">
-          <textarea name="message" placeholder="Your message"></textarea>
-          <button type="submit">Send</button>
+          <input id="emailModalEmail" type="email" name="email" placeholder="Your email">
+          <textarea class="materialize-textarea" name="message" placeholder="Your message"></textarea>
+          <br>
+          <br>
+          <button class="btn waves-effect waves-light" type="submit">Send<i class="material-icons right">send</i></button>
         </form>
       </div>
     </div>

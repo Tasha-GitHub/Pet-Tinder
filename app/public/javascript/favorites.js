@@ -107,8 +107,7 @@ function favoritesQuery() {
           // add an adopt option and a link to look at the pets bio again
           var savedAdopt = $("<div>");
           savedAdopt.addClass("card-action");
-          savedAdopt.attr("data-target", "emailModal");
-          savedAdopt.append("<button class='col s5 btn adopt'><a href='https://www.austinpetsalive.org/adopt/' target ='_blank'>Adopt</a></button>");
+          savedAdopt.append("<button class='col s5 btn adopt' data-target='emailModal'><a href='#'>Adopt</a></button>");
           savedAdopt.append("<button class='col s5 offset-s2 btn removePet' id=" + favorites[i].PetId + ">Remove</button>");
           card.append(savedAdopt);
 
