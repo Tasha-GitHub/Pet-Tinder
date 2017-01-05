@@ -7,15 +7,15 @@ nightmare
   // .goto('http://localhost:3000/')
    .click('#logText')
    .click('#loginModalButton')
-  .type('input[type="email"]', 's@gmail.com')
+  .type('input[type="email"]', 'shveta@gmail.com')
     .wait(10)
-  .type('input[type="password"]', 'abcd')  
+  .type('input[type="password"]', 'abcde')  
       .wait(10)
   .click('#loginButton')
   .wait('#logText')
   .click("#heart")
   .wait(1000)
-  // .goto('https://localhost:3000/')
+  
   .click('#fave')
   // .end()
   .then(function (result) {
