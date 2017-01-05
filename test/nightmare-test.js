@@ -2,7 +2,7 @@ var Nightmare = require('nightmare');
 var nightmare = Nightmare({ show: true })
 
 nightmare
-.viewport(500, 600)
+.viewport(900, 700)
   .goto('https://limitless-peak-20865.herokuapp.com')
   // .goto('http://localhost:3000/')
    .click('#logText')
@@ -13,6 +13,7 @@ nightmare
       .wait(10)
   .click('#loginButton')
   .wait('#logText')
+  // .click('.fa-arrow-right-green')
   .click("#heart")
   .wait(1000)
   
