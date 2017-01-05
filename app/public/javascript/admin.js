@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 	var admin = Boolean(JSON.parse(localStorage.getItem("admin")));
 
-if (!admin) {
+	if (!admin) {
 		$(".mainContent").html("<div class=\"warningMessage\"><h3>" + "Sorry but you are not an admin and do not have permission to view this information" + "</h3></div>")
 	}
 	// populate table of pets in database
@@ -108,42 +108,44 @@ if (!admin) {
 	$("#deletePetBtn").on("click", function (e) {
 		e.preventDefault();
 		var name = $("#deletePetName").val().trim();
-		console.log(name);
 
-		var currentURL = window.location.origin;
-		$.ajax({
-			type: "GET",
-			url: currentURL + "/pets/" + name,
-		}).done(function (allPets) {
+		// alert user if no name is entered in search field
+		if (name.length === 0) {
+			alertify.error("Please search by pet's name.");
+		} else {
+			var currentURL = window.location.origin;
+			$.ajax({
+				type: "GET",
+				url: currentURL + "/pets/" + name,
+			}).done(function (allPets) {
 
-			// show error message if no pets are found
-			if (allPets.length === 0) {
-				alertify.error("No pets found named " + name + ".");
-			}
-			else {
-
-				alertify.success("Found " + name + "(s)!");
-				// clear table beforehand
-				$("#petTable").empty();
-				// add pets from database
-				for (var i = 0; i < allPets.length; i++) {
-					var pet = $("<tr>");
-					var petId = $("<td>" + allPets[i].id + "</td>");
-					pet.append(petId);
-					var petName = $("<td>" + allPets[i].pet_name + "</td>");
-					pet.append(petName);
-					var petPic = $("<td><img class=\"responsive-img circle smallPic\" src='" + allPets[i].pet_photo + "' alt='" + allPets[i].pet_name + "'></td>");
-					pet.append(petPic);
-					var petAdopted = $("<td></td>");
-					var buttonId = $("<a class=\"waves-effect waves-light btn\" data=\"" + allPets[i].id + "\"><i class=\"material-icons\">done</i></a>").data("data-idNum", allPets[i].id).addClass("deletePet");
-					petAdopted.append(buttonId);
-					pet.append(petAdopted);
-					$("#petTable").append(pet);
+				// show error message if no pets are found
+				if (allPets.length === 0) {
+					alertify.error("No pets named " + name + ".");
+				} else {
+					alertify.success("Found " + name + "(s)!");
+					// clear table beforehand
+					$("#petTable").empty();
+					// add pets from database
+					for (var i = 0; i < allPets.length; i++) {
+						var pet = $("<tr>");
+						var petId = $("<td>" + allPets[i].id + "</td>");
+						pet.append(petId);
+						var petName = $("<td>" + allPets[i].pet_name + "</td>");
+						pet.append(petName);
+						var petPic = $("<td><img class=\"responsive-img circle smallPic\" src='" + allPets[i].pet_photo + "' alt='" + allPets[i].pet_name + "'></td>");
+						pet.append(petPic);
+						var petAdopted = $("<td></td>");
+						var buttonId = $("<a class=\"waves-effect waves-light btn\" data=\"" + allPets[i].id + "\"><i class=\"material-icons\">done</i></a>").data("data-idNum", allPets[i].id).addClass("deletePet");
+						petAdopted.append(buttonId);
+						pet.append(petAdopted);
+						$("#petTable").append(pet);
+					}
+					//console.log("end");
 				}
-				console.log("end");
-			}
 
-		});
+			});
+		}
 	});
 
 	// remove pets from database
