@@ -19,19 +19,21 @@
 <body>
 
 	<div id="mainColor" class="content">
-		<nav class="row">
-		    <div id="headerFooter" class="nav-wrapper s12 m12 l12">
-          <img id="pawImage" src="assets/images/orangepaw.png">
-		      <a id="fetchLogo" href="/" class="brand-logo">Fetch</a>
-		      <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-		      <ul class="right hide-on-med-and-down">
-		        <li><a href="/favorites">Favorites</a></li>
-		      </ul>
-		      <ul class="side-nav" id="mobile">
-		        <li><a href="/favorites">Favorites</a></li>
-		      </ul>
-		    </div>
-  		</nav>
+      <nav class="row">
+        <div class="nav-wrapper s12 m12 l12" id="headerFooter">
+            <img id="pawImage" src="assets/images/orangepaw.png" alt="pawPrint">
+            <a id="fetchLogo" href="/">Fetch</a>
+            <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a id="fave" class="right-align" href="/favorites">Favorites</a></li>
+                <li><a id="admin" class="right-align" href="/admin">Admin</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile">
+                <li><a href="/favorites">Favorites</a></li>
+                <li><a id="admin" href="/admin">Admin</a></li>
+            </ul>
+        </div>
+      </nav>
       <div class="mainContent">
   <!-- Admin Form to Add Pet -->
     		<section class="side-menu row">
