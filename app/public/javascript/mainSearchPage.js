@@ -149,7 +149,7 @@ function endOfList(){
 	$(".card-title").html(petName);
 	$("#petPhoto").attr("src", petPhoto);
 	var cardDescription = $("<div>");
-	cardDescription.html(petDesription);
+	cardDescription.html('<p>' + petDesription + '</p>');
 	$(".card-content").html(cardDescription);
 	counter++;
 }
