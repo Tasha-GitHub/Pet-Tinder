@@ -34,6 +34,8 @@ module.exports = function (app) {
 				userId = result.id;
 				//captures useremail in a variable
 				var userName = result.user_name;
+				//grabs admin permissions
+				var admin = result.admin;
 				//grabs users password from db
 				var hash = result.dataValues.user_password;
 				//compares db password and user entered password
@@ -44,7 +46,8 @@ module.exports = function (app) {
 					res.json({
 						confirm: passwordConfirmation,
 						result: userId,
-						name: userName
+						name: userName,
+						admin:admin
 					});
 				});
 			} 
@@ -92,7 +95,8 @@ module.exports = function (app) {
 				res.json({
 					confirm: true,
 					user_name: req.body.email,
-					result: userId
+					result: userId,
+					admin: false
 				});
 			});
 		});
